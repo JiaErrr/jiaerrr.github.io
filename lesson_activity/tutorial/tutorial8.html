@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>TIMETABLE FOR SEMESTER SEPTAMBER 2023</title>
-        <link rel=icon href=ppp.jpg type=image/jpg>
+        <link rel=icon href=photo/ppp.jpg type=image/jpg>
         <meta name=viewport content=width=device-width, initial-scale=1.0>
     </head>
 
@@ -13,19 +13,78 @@
             text-align: center;
             font-family: 'Times New Roman', Times, serif;
         }
-
-        /* body {
-            background-image: url('photo/gryffindor\'s\ wallpaper\ for\ pc\ _\ desktop.png');
-            background-repeat: no-repeat;
-            background-attachment: fixed;  
-            background-size: cover;
-        } */
+        .button-85 {
+            padding: 0.6em 2em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #fdeacd;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-85:before {
+            content: "";
+            background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        @keyframes glowing-button-85 {
+            0% {
+            background-position: 0 0;
+            }
+            50% {
+            background-position: 400% 0;
+            }
+            100% {
+            background-position: 0 0;
+            }
+            }
+        .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fdeacd;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+            }
+        a{
+            text-decoration: none;
+        }
     </style>
 
     <body topmargin="100" leftmargin="50" bgcolor="#fdeacd">
-       
-        <table  border="5" cellpadding="10">
-            <img src="crescendo_icon.png" alt="Crescendo Logo" width="" height="">
+        <table  border="5" cellpadding="10" align="center">
+            <img src="photo\crescendo_icon.png" alt="Crescendo Logo" width="" height="">
             <caption><font size="5"><b>TIMETABLE FOR SEMESTER SEPTAMBER 2023 <BR> 
                                         DIPLOMA IN COMPUTER SCINECE 
                                     </b></font><br><br></caption>
@@ -256,7 +315,12 @@
                 <td style=color:#d64949>Information Tech. & Application <br> DCS 1003</td>
                 <td></td>
             </tr>
-
         </table>
+        <br><br><br>
+        <center>
+            <a class="button-85" href="https://jiaerrr.github.io/lesson_activity/tutorial/tutorial15.html" target="_parent">
+                <font color="#d64949">HOME</font>
+            </a>
+        </center>
     </body>
 </html>         
