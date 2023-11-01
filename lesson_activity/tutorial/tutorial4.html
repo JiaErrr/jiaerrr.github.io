@@ -2,8 +2,78 @@
     <head>
         <link rel=icon href=ppp.jpg type=image/jpg>
         <title>Tutorial Lesson 4</title>
-        <meta name=viewport content=widith=device-width, initial-scale=1.0>
+        <meta name=viewport content=width=device-width, initial-scale=1.0>
     </head>
+    <style>
+        .button-85 {
+            padding: 0.6em 2em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #8FBC8F;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-85:before {
+            content: "";
+            background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        @keyframes glowing-button-85 {
+            0% {
+            background-position: 0 0;
+            }
+            50% {
+            background-position: 400% 0;
+            }
+            100% {
+            background-position: 0 0;
+            }
+            }
+        
+        .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #8FBC8F;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+            }
+        a{
+            text-decoration: none;
+        }
+    </style>
     <body bgcolor="#8FBC8F" 
         leftmargin="200px"
         topmargin="75px">
@@ -44,6 +114,10 @@
                     <a href=https://helenadailyenglish.com/101-short-stories-for-learning-english-beginner-to-advanced-level-text-audio-and-video>
                     101 English short stories for English leaerns from beginner to advanced level</a>
                 </font>
-                </p>
+            </p>
+        <br><br>
+        <a class="button-85" href="https://jiaerrr.github.io/lesson_activity/tutorial/tutorial15.html" target="_parent">
+            <font size="3" color="black">HOME</font>
+        </a>
     </body>       
 </html>
