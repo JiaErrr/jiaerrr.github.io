@@ -26,7 +26,74 @@
         .img2 {
             float:right;
         }
+        .button-85 {
+            padding: 0.6em 2em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #ebe8e1;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-85:before {
+            content: "";
+            background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
         
+        @keyframes glowing-button-85 {
+            0% {
+            background-position: 0 0;
+            }
+            50% {
+            background-position: 400% 0;
+            }
+            100% {
+            background-position: 0 0;
+            }
+            }
+        
+        .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ebe8e1;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+            }
+        a{
+            text-decoration: none;
+        }
     </style>
 
     <body topmargin="100" leftmargin="50" bgcolor="#ebe8e1">
@@ -99,35 +166,21 @@
         <br><br><br>
 
         <hr size="10" noshade color="#fb4454">
-
-        <table align="center">
-            <tr>
-                <td>
-                    <a href="https://jiaerrr.github.io/lesson_activity/tutorial/tutorial7.html">
-                        <font size="6" face="Haettenschweiler" color="#a4a2a5" align="left">
-                            Tutorial 7
-                        </font>
-                    </a>
-                </td>
-                <td>
-                    <a href="https://jiaerrr.github.io/lesson_activity/tutorial/tutorial8.html">
-                        <font size="6" face="Haettenschweiler" color="#a4a2a5" align="right">
-                            Tutorial 8
-                        </font>
-                    </a>
-                </td>
-            </tr>
-        </table>
-
         <p align="center">
-            <a href="#pp">
-                <font size="4" face="Haettenschweiler" color="#a4a2a5">Back to TOP</font>
+            <a class="button-85" href="#pp">
+                <font size="3" face="Haettenschweiler" color="#a4a2a5">Back to TOP</font>
             </a>
         </p>
-
+        <br>
         <p align="center">
-            <a href="mailto:cje2004@icloud.com">
-                <font size="6" face="Haettenschweiler" color="#a4a2a5">Contact Me</font>
+            <a class="button-85" href="mailto:cje2004@icloud.com">
+                <font size="3" face="Haettenschweiler" color="#a4a2a5">Contact Me</font>
+            </a>
+        </p>
+        <br>
+        <p align="center">
+            <a class="button-85" href="https://jiaerrr.github.io/lesson_activity/tutorial/tutorial15.html" target="_parent">
+                <font size="3" face="Haettenschweiler" color="#a4a2a5">HOME</font>
             </a>
         </p>
     </body>
