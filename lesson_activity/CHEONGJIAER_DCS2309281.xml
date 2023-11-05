@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<detail_the_finals>
+   <name>The Finals</name>
+   <app_id>2076040</app_id>
+   <supported_systems>Window</supported_systems>
+   <supported_platform>Steam</supported_platform>
+   <release_date>26 October 2023</release_date>
+   <user_online>
+      <date>26 Octobe 2023</date>
+         <user>64056</user>
+      <date>27 Octobe 2023</date>
+         <user>134260</user>
+      <date>28 Octobe 2023</date>
+         <user>235948</user>
+      <date>29 Octobe 2023</date>
+         <user>267874</user>
+      <date>30 Octobe 2023</date>
+         <user>249651</user>
+      <date>31 Octobe 2023</date>
+         <user>222501</user>
+   </user_online>
+</detail_the_finals>

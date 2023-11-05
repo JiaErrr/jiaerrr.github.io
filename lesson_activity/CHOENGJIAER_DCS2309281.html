@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Assignment XML</title>
+</head>
+<style>
+   table {
+      width: 80%;
+      height: 100px;
+      border-collapse: collapse;
+   }
+   th, caption, b {
+      color: #3A4D39;
+   }
+   td, th {
+      border: 2px solid #739072;
+      text-align: center;
+   }
+   
+</style>
+<body bgcolor="#ECE3CE" topmargin="50px" leftmargin="50px">
+   <div><center>
+      <caption><b>GAME DETAILS</b></caption>
+      <br><br>
+      <table>
+         <thead>
+            <tr>
+               <th>App ID</th>
+               <th>App Name</th>
+               <th>Supported Systems</th>
+               <th>Supported Platform</th>
+               <th>Release Date</th>
+            </tr>
+         </thead>
+         <tbody id="results" style="color: #3A4D39;"></tbody>
+      </table>
+      <br><br>
+      <caption><b>USERS ONLINE</b></caption>
+      <br><br>
+      <table>
+         <thead>
+            <tr>
+               <th width="50%">DATE</th>
+               <th>USER</th>
+            </tr>
+         </thead>
+         <tbody id="results2" style="color: #3A4D39;"></tbody>
+      </table>
+   </div></center>
+<script>
+      // Fetching XML data
+   fetch("CHEONGJIAER_DCS2309281.xml")
+   .then(response => response.text())
+   .then((data) => {
+      // Parsing XML data
+      let parser = new DOMParser();
+      let xml = parser.parseFromString(data, "text/xml");
+      // Accessing XML elements
+      let detail_the_finals = xml.querySelector('detail_the_finals');
+      // Extracting data from XML elements
+      let name = detail_the_finals.querySelector('name').textContent;
+      let app_id = detail_the_finals.querySelector('app_id').textContent;
+      let supported_systems = detail_the_finals.querySelector('supported_systems').textContent;
+      let supported_platform = detail_the_finals.querySelector('supported_platform').textContent;
+      let release_date = detail_the_finals.querySelector('release_date').textContent;
+
+      // Creating HTML Row and Column for the first table
+      const row = `<tr>
+                     <td>${app_id}</td>
+                     <td>${name}</td>
+                     <td>${supported_systems}</td>
+                     <td>${supported_platform}</td>
+                     <td>${release_date}</td>
+                  </tr>`;
+      // Show the result in the first table
+      const results = document.querySelector("#results");
+      results.insertAdjacentHTML("beforeend", row);
+
+      // Extracting data for the second table from user_online
+      let userOnline = detail_the_finals.querySelector('user_online');
+      let dates = userOnline.querySelectorAll('date');
+      let users = userOnline.querySelectorAll('user');
+
+      // Creating HTML Rows for the second table
+      for (let i = 0; i < dates.length; i++) {
+         let date = dates[i].textContent;
+         let user = users[i].textContent;
+
+         const row2 = `<tr>
+                           <td>${date}</td>
+                           <td>${user}</td>
+                        </tr>`;
+         // Show the result in the second table
+         const results2 = document.querySelector("#results2");
+         results2.insertAdjacentHTML("beforeend", row2);
+      }
+   });
+</script>
+</body> 
+</html>
