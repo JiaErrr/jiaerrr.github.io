@@ -1,0 +1,53 @@
+.parent {
+   display: grid;
+   grid-template-columns: repeat(2, 50%);
+   grid-template-rows: 10fr repeat(9, 20%);
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+   }
+   
+   .heading { 
+      grid-area: 1 / 1 / 2 / 3; 
+      text-align: center;
+   }
+   .fname1 { grid-area: 2 / 1 / 3 / 2; text-align: center;}
+   .fname2 { grid-area: 2 / 2 / 3 / 3; }
+   .lname1 { grid-area: 3 / 1 / 4 / 2; text-align: center;}
+   .lname2 { grid-area: 3 / 2 / 4 / 3; }
+   .gender1 { grid-area: 4 / 1 / 5 / 2; text-align: center;}
+   .gender2 { grid-area: 4 / 2 / 5 / 3; }
+   .choose1 { grid-area: 5 / 1 / 6 / 2; text-align: center;}
+   .choose2 { grid-area: 5 / 2 / 6 / 3; }
+   .address1 { grid-area: 6 / 1 / 7 / 2; text-align: center;}
+   .address2 { grid-area: 6 / 2 / 7 / 3; }
+   .dob1 { grid-area: 7 / 1 / 8 / 2; text-align: center;}
+   .dob2 { grid-area: 7 / 2 / 8 / 3; }
+   .login1 { grid-area: 8 / 1 / 9 / 2; text-align: center;}
+   .login2 { grid-area: 8 / 2 / 9 / 3; }
+   .course1 { grid-area: 9 / 1 / 10 / 2; text-align: center;}
+   .course2 { grid-area: 9 / 2 / 10 / 3; }
+   .footer { 
+      grid-area: 10 / 1 / 11 / 3; 
+      text-align: center;
+   }
+
+input, textarea, select{
+   outline-style: none ;
+   border: 2px solid #F7EFE5;
+   background-color: #D0A2F7;
+   border-radius: 3px;
+   padding: 6px;
+   font-size: 14px;
+   font-family: "Microsoft soft";
+}
+input:focus{
+   border-color: #F7EFE5;
+   outline: 0;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+div, input, select{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   color: #7743DB ;
+}
