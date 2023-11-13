@@ -1,0 +1,155 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+body{
+   background:#ECE3CE;
+   display: grid;
+   grid-template-columns: repeat(3, auto);
+   grid-template-rows: repeat(3,auto);
+}
+ul{
+   list-style: none;
+}
+
+/*//////////////////////////////////////////////////////// User Body ///////////////////////////////////////////////*/
+.boding{
+   grid-row: 2/3;
+   grid-column: 1/4;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}                                   
+.boding .container{
+   background-color: #3A4D39;
+   width: 650px;
+   height: 415px;
+   border-radius: 5px;
+   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+   /* 相对定位 */
+   position: relative;
+}
+.boding .container .form-box{
+   position: absolute;
+   top: -10%;
+   left: 5%;
+   background-color: #86A789;
+   width: 320px;
+   height: 500px;
+   border-radius: 5px;
+   box-shadow: 2px 0px 1px rgba(0, 0, 0, 0.2);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   z-index: 2;
+   /* 加速后减速 */
+   transition: 0.5s ease-in-out;
+}
+.register-box, .login-box{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+}
+.hidden{
+   display: none;
+   transition: 5s;
+}
+.boding .container .form-box .register-box,.login-box h1{
+   text-align: center;
+   margin-bottom: 25px;
+   text-transform: uppercase;
+   color: #ECE3CE;
+   letter-spacing: 5px;
+}
+input{
+   background-color: transparent;
+   width: 70%;
+   color: #ECE3CE;
+   border: none;
+   border-bottom: 1px solid;
+   padding: 10px 0;
+   margin: 10px 0px;
+   font-size: 14px;
+   letter-spacing: 2px;
+}
+input::placeholder{
+   color: #ECE3CE;
+}
+input:focus{
+   color: #3A4D39;
+   outline: none;
+   border-bottom: 1px solid #3A4D39;
+   transition: 0.5s;
+}
+input:focus::placeholder{
+   opacity: 0;
+} 
+.form-box button{
+   width: 70%;
+   margin-top: 35px;
+   background-color: #ECE3CE;
+   border: none;
+   border-radius: 100px;
+   padding: 13px;
+   color: #86A789;
+   letter-spacing: 2px;
+   cursor: pointer;
+}
+.form-box button:hover{
+   background-color: #3A4D39;
+   color: #ECE3CE;
+   transition: background-color 0.5s ease;
+}
+.boding .container .con-box{
+   margin-top: 200px;
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 50;
+   transform: translateY(-50%)
+}
+.left{
+   left: -2%;
+}
+.right{
+   right:-2%;
+}
+.con-box h2{
+   color: #ECE3CE;
+   font-size: 25px;
+   font-weight: bold;
+   letter-spacing: 3px;
+   text-align: center;
+   margin-bottom: 4px;
+}
+.con-box p{
+   color: #ECE3CE;
+   font-size: 14px;
+   letter-spacing: 2px;
+   text-align: center;
+}
+.con-box button{
+   width: 60%;
+   margin-top: 6%;
+   background-color: #3A4D39;
+   border: 1px solid ;
+   border-radius: 100px;
+   padding: 10px 15px;
+   color: #86A789;
+   letter-spacing: 2px;
+   cursor: pointer;
+   outline: none;
+   cursor: pointer;
+}
+.con-box button:hover{
+   background-color: #ECE3CE;
+   color: #3A4D39;
+   transition: background-color 0.5s ease;
+}

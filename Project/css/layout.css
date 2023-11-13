@@ -1,0 +1,218 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+body{
+   background:#FFF5E0;
+   display: grid;
+   grid-template-columns: repeat(3, auto);
+   grid-template-rows: repeat(3,auto);
+   scroll-behavior: smooth;
+}
+body::-webkit-scrollbar{
+   display: none;
+}
+ul{
+   list-style: none;
+}
+
+/************************************** The heading******************************************/
+
+.heading{
+   width: 100%;
+   grid-row: 1/2;
+   grid-column: 1/4;
+   position: sticky;
+   justify-self: center;
+   place-items: center;
+   top: 0;
+   left: 0;
+   z-index: 100;
+}
+.menu{
+   width: 100%;
+   height: 60px;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   place-items: center;
+   background: #FFF5E0;
+}
+.menu li{
+   background: #FFF5E0;
+   border-bottom: 2px solid #FFF5E0;
+   border-top: 2px solid #FFF5E0;
+   min-width: 18%;
+}
+.menu a{
+   display: block;
+   color: #3A4D39;
+   font-family: 'Lucida Console';
+   font-size: 18px;
+   line-height: 54px;
+   padding: 0 25px;
+   text-decoration: none;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+}
+.menu > li{
+   position: relative;
+   float: left;
+}
+.menu > li:first-child{
+   border-radius: 5px 0 0;
+}
+.submenu{
+   max-height: 0;
+   position: absolute;
+   left: 0;
+   top: 100%;
+   z-index: 0;
+}
+.submenu li{
+   opacity: 0;
+   transform: rotateY('90deg');
+   transition:
+   opacity .4s, transform .5s;
+}
+.menu li:hover{
+   background-color: #FFF5E0;
+   border-bottom: 2px solid #FFF5E0;
+   border-top: 2px solid #FFF5E0;
+}
+.menu li:hover > a{
+   border-radius: 5px 0 0;
+   border-left: 3px solid #3A4D39;
+   color:#86A789;
+}
+.menu .submenu li:hover a{
+   border-left: 3px solid #3A4D39;
+   border-radius: 0;
+   color: #86A789;
+}
+.menu > li:hover .submenu{
+   min-height: 700px;
+   z-index: 10;
+}
+.menu > li:hover .submenu li{
+   transform: rotateY(0deg);
+   opacity: 1;
+}
+
+/************************************************************** Footer ****************************************************************************/
+.ending{
+   grid-row: 3/4;
+   grid-column: 1/4;
+   position: sticky;
+}
+.ending .footer{
+   padding: 0px 5vw;
+   display: grid;
+   width: 100;
+   height: fit-content;
+   grid-template-columns: repeat(4, auto);
+   grid-template-rows: repeat(3, auto);
+   background-color: #3A4D39;
+}
+.ending .footer .continue{
+   grid-column:1/4;
+   grid-row: 1/2;
+   color: #FFF5E0;
+   font-family: Rockwell;
+   font-size: 100px;
+   margin: 100px 20px;
+   letter-spacing: 5px;
+}
+.ending .footer .button-box{
+   margin: 100px 20px;
+   grid-column:4/5;
+   grid-row: 1/2;
+   width: fit-content;
+   padding-top: 42px;
+}
+.ending .footer .button-box img{
+   display: grid;
+   width: 80px;
+   height:80px;
+   margin-top: 20px;
+   margin-left: auto;
+   margin-right: auto;
+}
+.ending .footer .button-box .button1{
+   align-items: center;
+   background-color: #3A4D39;
+   border: 3px solid #FFF5E0;
+   border-radius: 100px;
+   box-sizing: border-box;
+   color: #FFF5E0;
+   display: inline-flex;
+   font-family: Rockwell;
+   font-size: 40px;
+   justify-content: center;
+   height: fit-content;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   padding-left: 60px;
+   padding-right: 60px;
+   text-align: center;
+   text-decoration: none;
+   cursor: pointer;
+   transition: 0.5s;
+}
+.ending .footer .button-box .button1:hover,.ending .footer .button-box.button1:focus{ 
+   background-color: #FFF5E0;
+   color: #3A4D39;
+   border-color: #FFF5E0;
+   letter-spacing: 2px;
+}
+.ending .footer .first{
+   grid-column: 1/2;
+   grid-row: 2/3;
+   height: fit-content;
+   margin: 20px 20px;
+}
+.ending .footer .second{
+   grid-column: 2/3;
+   grid-row: 2/3;
+   height: fit-content;
+   margin: 20px 20px;
+}
+.ending .footer .third{
+   grid-column: 3/4;
+   grid-row: 2/3;
+   height: fit-content;
+   margin: 20px 20px;
+}
+.ending .footer .four{
+   grid-column: 4/5;
+   grid-row: 2/3;
+   height: fit-content;
+   margin: 20px 20px;
+}
+.ending .footer div ul li b{
+   color: #FFF5E0;
+   font-family: 'Lucida Console';
+   font-size: 24px;
+}
+.ending .footer div ul li a{
+   display: block;
+   margin: 20px 0px;
+   background-color: #3A4D39;
+   color: #FFF5E0;
+   font-family: 'Lucida Console';
+   font-size: 18px;
+   text-decoration: none;
+   justify-content: center;
+   height: 20px;
+}
+.ending .footer div ul li > a:hover{
+   border-bottom: 2px solid #86A789;
+   width: fit-content;
+   color: #86A789;
+}
+.boding{
+   grid-row: 2/3;
+   grid-column: 1/4;
+   background-color: #FFF5E0;
+}
