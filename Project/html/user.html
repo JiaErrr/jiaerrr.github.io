@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="/Project/image/Logo.jpeg">
+   <link rel="stylesheet" href="/Project/css/layout.css">
+   <link rel="stylesheet" href="/Project/css/user_body.css">
+   <title>Woof</title>
+   
+</head>
+<body>
+<!-- webpage layout -->
+<div class="heading">
+   <ul class="menu">
+      <li align="left"><a href="/Project/html/man.html">Men</a>
+         <ul class="submenu">
+            <li><a href="/Project/html/man_clothes.html">Clothes</a></li>
+            <li><a href="/Project/html/hoodie.html">Hoodie</a></li>
+            <li><a href="/Project/html/cap.html">Cap</a></li>
+         </ul>
+      </li>
+      <li align="left"><a href="/Project/html/woman.html">Woman</a>
+         <ul class="submenu">
+            <li><a href="/Project/html/woman_clothes.html">Clothes</a></li>
+            <li><a href="/Project/html/hoodie.html">Hoodie</a></li>
+            <li><a href="/Project/html/cap.html">Cap</a></li>
+         </ul>
+      </li>
+      <li align="left"><a href="/Project/html/home.html">WOOF</a></li>
+      <li align="left"><a href="/Project/html/user.html">User</a></li>
+      <li align="left"><a href="/Project/html/cart.html">Cart</a></li>
+   </ul>
+</div>
+
+
+<div class="boding">
+   <div class="container">
+      <div class="form-box">
+
+
+         <!-- Register -->
+         <div class="register-box hidden">
+            <h1 class="title">Register</h1>
+            <form>
+               <input type="text" placeholder="User Name" class="input">
+               <input type="email" placeholder="Email" class="input">
+               <input type="password" placeholder="Password" class="input">
+               <input type="password" placeholder="Password" class="input">
+            </form>
+               <button class="btn">Register</button>
+         </div>
+
+
+         <!-- Login -->
+         <div class="login-box" >
+            <h1 class="title">Login</h1>
+            <form>
+               <input type="text" placeholder="User Name / Email" class="input">
+               <input type="password" placeholder="Password" class="input">
+            </form>
+               <button class="btn">Login in</button>
+         </div>
+      </div>
+
+      <div class="con-box left" >
+         <h2>Welcome WOOF</h2>
+         <p>Already have account?</p>
+         <button id="login">Login</button>
+      </div>
+
+      <div class="con-box right" >
+         <h2>Welcome WOOF</h2>
+         <p>New Customer?</p>
+         <button id="register">Register</button>
+      </div>
+   </div>
+</div>
+
+
+<div class="ending">
+   <div class="footer">
+      <div class="continue">
+         LET’S  START  YOUR<br>
+         SHOP JOURNEY
+      </div>
+      <div class="button-box">
+         <a href="/Project/html/shop.html" class="button1">Get Started</a>
+         <img src="/Project/image/Logo.jpeg">
+      </div>
+      <div class="first">
+         <ul>
+            <li><b>FOR HIM</b></li>
+            <li><a href="/Project/html/man_clothes.html">Clothes</a></li>
+            <li><a href="/Project/html/hoodie.html">Hoodie</a></li>
+            <li><a href="/Project/html/cap.html">Cap</a></li>
+         </ul>
+         
+      </div>
+      <div class="second">
+         <ul>
+            <li><b>FOR HER</b></li>
+            <li><a href="/Project/html/woman_clothes.html">Clothes</a></li>
+            <li><a href="/Project/html/hoodie.html">Hoodie</a></li>
+            <li><a href="/Project/Whtml/cap.html">Cap</a></li>
+         </ul>
+      </div>
+      <div class="third">
+         <ul>
+            <li><b>INFO</b></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">FAQ</a></li>
+         </ul>
+      </div>
+      <div class="four">
+         <ul>
+            <li><b>Contact Us</b></li>
+            <li><a href="mailto:cje2004@icloud.com">support@woof.com</a></li>
+         </ul>
+      </div>
+   </div>
+</div>
+<script>
+   let login = document.getElementById('login');
+   let register = document.getElementById('register');
+   let form_box = document.querySelector('.form-box');
+   let register_box = document.querySelector('.register-box');
+   let login_box = document.querySelector('.login-box');
+   
+   register.addEventListener('click', () => {
+      form_box.style.transform = 'translateX(80%)';
+      login_box.classList.add('hidden');
+      register_box.classList.remove('hidden');
+   });
+   
+   login.addEventListener('click', () => {
+      form_box.style.transform = 'translateX(0%)';
+      register_box.classList.add('hidden');
+      login_box.classList.remove('hidden');
+   });
+</script>
+</body>
+</html>
