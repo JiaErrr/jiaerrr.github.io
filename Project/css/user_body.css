@@ -3,7 +3,7 @@
    padding: 0;
 }
 body{
-   background:#ECE3CE;
+   background:#FFF5E0;
    display: grid;
    grid-template-columns: repeat(3, auto);
    grid-template-rows: repeat(3,auto);
@@ -16,7 +16,7 @@ ul{
 .boding{
    grid-row: 2/3;
    grid-column: 1/4;
-   height: 100vh;
+   height: 80vh;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -65,7 +65,7 @@ ul{
    color: #ECE3CE;
    letter-spacing: 5px;
 }
-input{
+.container input{
    background-color: transparent;
    width: 70%;
    color: #ECE3CE;
@@ -76,16 +76,16 @@ input{
    font-size: 14px;
    letter-spacing: 2px;
 }
-input::placeholder{
+.container input::placeholder{
    color: #ECE3CE;
 }
-input:focus{
+.container input:focus{
    color: #3A4D39;
    outline: none;
    border-bottom: 1px solid #3A4D39;
    transition: 0.5s;
 }
-input:focus::placeholder{
+.container input:focus::placeholder{
    opacity: 0;
 } 
 .form-box button{
