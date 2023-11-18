@@ -27,12 +27,14 @@ a{
 /* Mobile Styles */
 @media only screen and (max-width: 768px) {
    .heading{
-      width: fit-content;
+      width: 768px;
       grid-row: 1/2;
       grid-column: 1/4;
       display: grid;
       grid-template-columns: repeat(3,auto);
       grid-template-rows: repeat(2,auto);
+      justify-content: center;
+      margin: 0 auto;
       position: sticky;
       top: 0;
       left: 0;
@@ -65,8 +67,8 @@ a{
       align-items: center;
    }
    .search-box{
-      width: 120px;
-      height: 20px;
+      width: 100px;
+      height: 15px;
       padding: 10px 20px;
       border-top-left-radius: 15px;
       border-bottom-left-radius: 15px;
@@ -76,10 +78,10 @@ a{
       background: none;
       color: #3A4D39;
       outline: none;
-      font-size: 16px;
+      font-size: 12px;
    }
    .search-btn{
-      height: 44px;
+      height: 39px;
       padding: 5px 10px;
       border: 2px solid #3A4D39;
       outline: none;
@@ -88,7 +90,7 @@ a{
       color: #FFF5E0;
       text-transform: capitalize;
       font-family: Rockwell;
-      font-size: 16px;
+      font-size: 12px;
       border-top-right-radius: 15px;
       border-bottom-right-radius: 15px;
    }
@@ -104,6 +106,7 @@ a{
       max-width: fit-content;
       display: flex;
       align-items: center;
+      
       margin: 0px auto;
       border-top: 2px solid #3A4D39;
       background: #FFF5E0;
@@ -167,6 +170,147 @@ a{
    .menu > li:hover .submenu li{
       transform: rotateY(0deg);
       opacity: 1;
+   }
+   /************************************************************** Footer ****************************************************************************/
+   .ending{
+      grid-row: 3/4;
+      grid-column: 1/4;
+      position: sticky;
+   }
+   .ending .footer{
+      padding: 0px 1vw;
+      display: grid;
+      height: fit-content;
+      width: 100%;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(4, auto);
+      background-color: #3A4D39;  
+   }
+   .ending .footer .continue{
+      grid-column:1/4;
+      grid-row: 1/2;
+      color: #FFF5E0;
+      font-family: Rockwell;
+      font-size: 20px;
+      margin: 20px;
+      letter-spacing: 5px;
+   }
+   #button-logo{
+      grid-column:1/3;
+      grid-row: 1/2;
+      display: flex;
+      align-self: last baseline;
+      justify-content: space-between;
+      padding-top: 70px;
+   }
+   .ending .footer .button-box .button1{
+      align-items: center;
+      background-color: #3A4D39;
+      border: 3px solid #FFF5E0;
+      border-radius: 100px;
+      box-sizing: border-box;
+      color: #FFF5E0;
+      display: inline-flex;
+      font-family: Rockwell;
+      font-size: 12px;
+      height: fit-content;
+      width: 110px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.5s;
+   }
+   .ending .footer .logo_box img{
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+   }
+   
+   .ending .footer .button-box .button1:hover,.ending .footer .button-box.button1:focus{ 
+      background-color: #FFF5E0;
+      color: #3A4D39;
+      border-color: #FFF5E0;
+   }
+   .ending .footer .first{
+      grid-column: 1/2;
+      grid-row: 2/3;
+      height: fit-content;
+      width: fit-content;
+      margin: 10px
+   }
+   .ending .footer .second{
+      grid-column: 2/3;
+      grid-row: 2/3;
+      height: fit-content;
+      width: fit-content;
+      margin: 10px
+   }
+   .ending .footer .third{
+      grid-column: 1/2;
+      grid-row: 3/4;
+      height: fit-content;
+      width: fit-content;
+      margin: 10px
+   }
+   .ending .footer .four{
+      grid-column: 2/3;
+      grid-row: 3/4;
+      height: fit-content;
+      width: fit-content;
+      margin: 10px
+   }
+   .ending .footer div ul li b{
+      color: #FFF5E0;
+      font-family: 'Lucida Console';
+      font-size: 14px;
+      font-weight: 900;
+   }
+   .ending .footer div ul li a{
+      display: block;
+      margin: 10px 0px;
+      background-color: #3A4D39;
+      color: #FFF5E0;
+      font-family: 'Lucida Console';
+      font-size: 10px;
+      text-decoration: none;
+      justify-content: center;
+      height: 20px;
+   }
+   .ending .footer div ul li > a:hover{
+      border-bottom: 2px solid #86A789;
+      width: fit-content;
+      color: #86A789;
+   }
+   .boding{
+      grid-row: 2/3;
+      grid-column: 1/4;
+      background-color: #FFF5E0;
+   }
+   /* 888888888 top-btn888888888 */
+   .top-btn{
+      grid-row: 2/3;
+      grid-column: 3/4;
+      bottom: 20px;
+      display: grid;
+      position: sticky;
+      place-self: end;
+      justify-self: left;
+      margin:0 20px 20px 0px;
+   }
+   .top-btn > a{
+      display: inline-block;
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      font-size: 50px;
+      color: #3A4D39;
+      background-color: rgba(134,167,137,1);
+      font-weight:bolder;
+      text-align: center;
    }
 }
 /* Desktop Styles */
@@ -320,149 +464,149 @@ a{
       transform: rotateY(0deg);
       opacity: 1;
    }
+   /************************************************************** Footer ****************************************************************************/
+   .ending{
+      grid-row: 3/4;
+      grid-column: 1/4;
+      position: sticky;
+   }
+   .ending .footer{
+      padding: 0px 5vw;
+      display: grid;
+      height: fit-content;
+      grid-template-columns: repeat(4, 1.5fr);
+      grid-template-rows: repeat(3, auto);
+      background-color: #3A4D39;  
+   }
+   .ending .footer .continue{
+      grid-column:1/4;
+      grid-row: 1/2;
+      color: #FFF5E0;
+      font-family: Rockwell;
+      font-size: 40px;
+      margin: 50px 20px;
+      letter-spacing: 5px;
+   }
+   .ending .footer .button-box{
+      grid-column:3/4;
+      grid-row: 1/2;
+      margin: 50px; 
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+   }
+   .ending .footer .logo_box{
+      display: grid;
+      grid-column:4/5;
+      grid-row: 1/2;
+      width: 100px;
+      height: 100px;
+      margin: 50px auto; 
+   }
+   .ending .footer .logo_box img{
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+   }
+   .ending .footer .button-box .button1{
+      align-items: center;
+      background-color: #3A4D39;
+      border: 3px solid #FFF5E0;
+      border-radius: 100px;
+      box-sizing: border-box;
+      color: #FFF5E0;
+      display: inline-flex;
+      font-family: Rockwell;
+      font-size: 18px;
+      height: fit-content;
+      width: 220px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 60px;
+      padding-right: 60px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.5s;
+   }
+   .ending .footer .button-box .button1:hover,.ending .footer .button-box.button1:focus{ 
+      background-color: #FFF5E0;
+      color: #3A4D39;
+      border-color: #FFF5E0;
+   }
+   .ending .footer .first{
+      grid-column: 1/2;
+      grid-row: 2/3;
+      height: fit-content;
+      margin: 20px 20px;
+   }
+   .ending .footer .second{
+      grid-column: 2/3;
+      grid-row: 2/3;
+      height: fit-content;
+      margin: 20px 20px;
+   }
+   .ending .footer .third{
+      grid-column: 3/4;
+      grid-row: 2/3;
+      height: fit-content;
+      margin: 20px 20px;
+   }
+   .ending .footer .four{
+      grid-column: 4/5;
+      grid-row: 2/3;
+      height: fit-content;
+      margin: 20px 20px;
+   }
+   .ending .footer div ul li b{
+      color: #FFF5E0;
+      font-family: 'Lucida Console';
+      font-size: 24px;
+   }
+   .ending .footer div ul li a{
+      display: block;
+      margin: 20px 0px;
+      background-color: #3A4D39;
+      color: #FFF5E0;
+      font-family: 'Lucida Console';
+      font-size: 18px;
+      text-decoration: none;
+      justify-content: center;
+      height: 20px;
+   }
+   .ending .footer div ul li > a:hover{
+      border-bottom: 2px solid #86A789;
+      width: fit-content;
+      color: #86A789;
+   }
+   .boding{
+      grid-row: 2/3;
+      grid-column: 1/4;
+      background-color: #FFF5E0;
+   }
+   /* 888888888 top-btn888888888 */
+   .top-btn{
+      grid-row: 2/3;
+      grid-column: 3/4;
+      bottom: 20px;
+      display: grid;
+      position: sticky;
+      place-self: end;
+      justify-self: left;
+      margin:0 20px 20px 0px;
+   }
+   .top-btn > a{
+      display: inline-block;
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      font-size: 50px;
+      color: #3A4D39;
+      background-color: rgba(134,167,137,1);
+      font-weight:bolder;
+      text-align: center;
+   }
 }
 
 
-/************************************************************** Footer ****************************************************************************/
-.ending{
-   grid-row: 3/4;
-   grid-column: 1/4;
-   position: sticky;
-}
-.ending .footer{
-   padding: 0px 5vw;
-   display: grid;
-   height: fit-content;
-   grid-template-columns: repeat(4, 1.5fr);
-   grid-template-rows: repeat(3, auto);
-   background-color: #3A4D39;  
-}
-.ending .footer .continue{
-   grid-column:1/4;
-   grid-row: 1/2;
-   color: #FFF5E0;
-   font-family: Rockwell;
-   font-size: 40px;
-   margin: 50px 20px;
-   letter-spacing: 5px;
-}
-.ending .footer .button-box{
-   grid-column:3/4;
-   grid-row: 1/2;
-   margin: 50px; 
-   display: flex;
-   position: relative;
-   justify-content: center;
-   align-items: center;
-}
-.ending .footer .logo_box{
-   display: grid;
-   grid-column:4/5;
-   grid-row: 1/2;
-   width: 100px;
-   height: 100px;
-   margin: 50px auto; 
-}
-.ending .footer .logo_box img{
-   width: 100px;
-   height: 100px;
-   object-fit: cover;
-}
-.ending .footer .button-box .button1{
-   align-items: center;
-   background-color: #3A4D39;
-   border: 3px solid #FFF5E0;
-   border-radius: 100px;
-   box-sizing: border-box;
-   color: #FFF5E0;
-   display: inline-flex;
-   font-family: Rockwell;
-   font-size: 18px;
-   height: fit-content;
-   width: 220px;
-   padding-top: 20px;
-   padding-bottom: 20px;
-   padding-left: 60px;
-   padding-right: 60px;
-   text-align: center;
-   text-decoration: none;
-   cursor: pointer;
-   transition: 0.5s;
-}
-.ending .footer .button-box .button1:hover,.ending .footer .button-box.button1:focus{ 
-   background-color: #FFF5E0;
-   color: #3A4D39;
-   border-color: #FFF5E0;
-}
-.ending .footer .first{
-   grid-column: 1/2;
-   grid-row: 2/3;
-   height: fit-content;
-   margin: 20px 20px;
-}
-.ending .footer .second{
-   grid-column: 2/3;
-   grid-row: 2/3;
-   height: fit-content;
-   margin: 20px 20px;
-}
-.ending .footer .third{
-   grid-column: 3/4;
-   grid-row: 2/3;
-   height: fit-content;
-   margin: 20px 20px;
-}
-.ending .footer .four{
-   grid-column: 4/5;
-   grid-row: 2/3;
-   height: fit-content;
-   margin: 20px 20px;
-}
-.ending .footer div ul li b{
-   color: #FFF5E0;
-   font-family: 'Lucida Console';
-   font-size: 24px;
-}
-.ending .footer div ul li a{
-   display: block;
-   margin: 20px 0px;
-   background-color: #3A4D39;
-   color: #FFF5E0;
-   font-family: 'Lucida Console';
-   font-size: 18px;
-   text-decoration: none;
-   justify-content: center;
-   height: 20px;
-}
-.ending .footer div ul li > a:hover{
-   border-bottom: 2px solid #86A789;
-   width: fit-content;
-   color: #86A789;
-}
-.boding{
-   grid-row: 2/3;
-   grid-column: 1/4;
-   background-color: #FFF5E0;
-}
-/* 888888888 top-btn888888888 */
-.top-btn{
-   grid-row: 2/3;
-   grid-column: 3/4;
-   bottom: 20px;
-   display: grid;
-   position: sticky;
-   place-self: end;
-   justify-self: left;
-   margin:0 20px 20px 0px;
-}
-.top-btn > a{
-   display: inline-block;
-   width: 75px;
-   height: 75px;
-   border-radius: 50%;
-   font-size: 50px;
-   color: #3A4D39;
-   background-color: rgba(134,167,137,1);
-   font-weight:bolder;
-   text-align: center;
-}
