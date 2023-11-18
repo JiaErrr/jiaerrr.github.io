@@ -31,7 +31,6 @@ a{
       grid-row: 2/3;
       grid-column: 1/4;
       display: grid;
-      justify-content: left;
       width: fit-content;
    }
    .home-image{
