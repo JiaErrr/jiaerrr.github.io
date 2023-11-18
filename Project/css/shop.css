@@ -84,6 +84,12 @@ a{
       display: grid;
       justify-self: center;
    }
+   .cart-modal .total {
+      width: 300px;
+   }
+   .cart-modal .total .purchase-btn{
+      width: 40%;
+   }
 }
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
    .product { 
@@ -117,6 +123,9 @@ a{
    .product-row{
       display: flex;
    }
+   .cart-modal .total .purchase-btn{
+      width: 40%;
+   }
 }
 @media only screen and (min-width: 1025px){
    .boding{
@@ -147,6 +156,9 @@ a{
    }
    .product-row{
       display: flex;
+   }
+   .cart-modal .total .purchase-btn{
+      width: 30%;
    }
 }
 .product .product_card{
@@ -367,7 +379,6 @@ a{
    bottom: 10px;
    left: 50%;
    padding: 10px;
-   width: 30%;
    margin-top: 50px;
    margin-bottom: 50px;
    margin-left: 30px;
