@@ -175,10 +175,9 @@ a{
    .ending .footer{
       display: grid;
       height: fit-content;
-      width: 70%;
-      max-width: 768px;
+      max-width: 600px;
       padding: 10px 2vw;
-      grid-template-columns: repeat(2, minmax(150px, 350px));
+      grid-template-columns: repeat(2, auto);
       grid-template-rows: repeat(4, auto);
       background-color: #3A4D39;  
    }
@@ -216,16 +215,15 @@ a{
    .ending .footer .button-box{
       width: 200px;
       grid-column:1/2;
-      grid-row: 1/2;
-      margin-top: 70px;
+      grid-row: 2/3;
       display: grid;
-      align-items: last baseline;
+      align-items: center;
       justify-content: center;
    }
    .ending .footer .logo_box{
       display: grid;
       grid-column:2/3;
-      grid-row: 1/2;
+      grid-row: 2/3;
       align-items: last baseline;
       margin: 0px 2vw;
    }
@@ -234,7 +232,6 @@ a{
       height: 80px;
       object-fit: cover;
    }
-   
    .ending .footer .button-box .button1:hover,.ending .footer .button-box.button1:focus{ 
       background-color: #FFF5E0;
       color: #3A4D39;
@@ -242,28 +239,28 @@ a{
    }
    .ending .footer .first{
       grid-column: 1/2;
-      grid-row: 2/3;
+      grid-row: 3/4;
       height: fit-content;
       width: fit-content;
       margin: 10px
    }
    .ending .footer .second{
       grid-column: 2/3;
-      grid-row: 2/3;
+      grid-row: 3/4;
       height: fit-content;
       width: fit-content;
       margin: 10px
    }
    .ending .footer .third{
       grid-column: 1/2;
-      grid-row: 3/4;
+      grid-row: 4/5;
       height: fit-content;
       width: fit-content;
       margin: 10px
    }
    .ending .footer .four{
       grid-column: 2/3;
-      grid-row: 3/4;
+      grid-row: 4/5;
       height: fit-content;
       width: fit-content;
       margin: 10px
@@ -298,7 +295,7 @@ a{
    /* 888888888 top-btn888888888 */
    .top-btn{
       grid-row: 2/3;
-      grid-column: 2/3;
+      grid-column: 3/4;
       bottom: 20px;
       right: 20px;
       display: grid;
@@ -595,12 +592,12 @@ a{
    /* 888888888 top-btn888888888 */
    .top-btn{
       grid-row: 2/3;
-      grid-column: 3/4;
+      grid-column: 2/3;
       bottom: 20px;
       display: grid;
       position: sticky;
       place-self: end;
-      justify-self: left;
+      left: 90%;
       margin:0 20px 20px 0px;
    }
    .top-btn > a{
