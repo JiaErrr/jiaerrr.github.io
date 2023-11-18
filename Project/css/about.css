@@ -1,0 +1,143 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+body{
+   background:#FFF5E0;
+   display: grid;
+   grid-template-columns: repeat(3, auto);
+   grid-template-rows: repeat(3,auto);
+}
+ul{
+   list-style: none;
+}
+
+.boding > .info{
+   display: grid;
+   margin: 20px auto;
+   max-width: 1200px;
+   min-width: 300px;
+   height: fit-content;
+   padding: 20px;
+   background-color: #3A4D39;
+   border-radius: 24px;
+   box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.4);
+}
+.info .info_menu{
+   display: flex;
+}
+.info .info_menu li a {
+   display: block;
+   color: #FFF5E0;
+   padding-right: 40px;
+   font-family: 'Lucida Console';
+   text-decoration: none;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+}
+.info .info_menu li a:hover{
+   text-decoration: underline;
+}
+.info .info_menu > ul > li{
+   position: relative;
+   float: left;
+}
+@media only screen and (max-width: 600px){
+   .boding > .info{
+      width: 300px;
+   }
+   .info .info_menu li a{
+      font-size: 16px;
+      margin: 20px;
+   }
+   .info .about{
+      font-size: 14px;
+      margin: 10px;
+   }
+   .info .about i{
+      font-size: 18px;
+   }
+   .info .faq_ol > li{
+      margin-top: 20px;
+      font-size: 16px;
+   }
+   .info .faq_ol ul > li{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 14px;
+   }
+}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+   .info .info_menu li a {
+      font-size: 20px;
+      margin: 40px;
+   }
+   .info .about{
+      font-size: 16px;
+      margin: 15px;
+   }
+   .info .about i{
+      font-size: 22px;
+   }
+   .info .faq_ol > li{
+      margin-top: 35px;
+      font-size: 18px;
+   }
+   .info .faq_ol ul > li{
+      margin-top: 35px;
+      margin-bottom: 35px;
+      font-size: 16px;
+   }
+}
+@media only screen and (min-width: 1025px){
+   .info .info_menu li a {
+      font-size: 24px;
+      margin: 40px;
+   }
+   .info .about{
+      font-size: 18px;
+      margin: 40px;
+   }
+   .info .about i{
+      font-size: 28px;
+   }
+   .info .faq_ol > li{
+      margin-top: 50px;
+   }
+   .info .faq_ol ul > li{
+      margin-top: 50px;
+      margin-bottom: 50px;
+   }
+}
+.info a{
+   font-weight: 1000;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   font-family:'Lucida Console';
+   color: #FFF5E0;
+   width: fit-content;
+   height: fit-content;
+}
+.info .about{
+   font-family: 'Rockwell';
+   color: #86A789;
+   font-weight: 600;
+   letter-spacing: 1px;
+}
+.info .about i{
+   font-family: 'Rockwell';
+   color: #86A789;
+   font-weight: 900;
+   letter-spacing: 1px;
+}
+.info .faq_ol{
+   margin: 0px 60px;
+   list-style-type: decimal;
+   font-family: 'Rockwell';
+   color: #86A789;
+   font-weight: 300;
+   letter-spacing: 1px;
+}
+.info .faq_ol > li{
+   font-weight: 600;
+}
