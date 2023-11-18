@@ -11,7 +11,19 @@
 <body>
 <!-- webpage layout -->
 <div class="heading">
+   <div class="nav">
+      <div class="logo-name"><a href="/Project/html/home.html"><img src="/Project/image/Logo_name.png" class="logo-name"></a></div>
+      <div class="navbar">
+         <div class="search">
+            <input type="text" class="search-box" placeholder="search product">
+            <button class="search-btn">search</button>
+         </div>
+         <a href="/Project/html/user.html"><img src="/Project/image/user_icon.png"></a>
+      </div>
+   </div>
+   
    <ul class="menu">
+      <li align="left"><a href="/Project/html/shop.html">Sale</a></li>
       <li align="left"><a href="/Project/html/man.html">Men</a>
          <ul class="submenu">
             <li><a href="/Project/html/man_clothes.html">Clothes</a></li>
@@ -26,15 +38,33 @@
             <li><a href="/Project/html/cap.html">Cap</a></li>
          </ul>
       </li>
-      <li align="left"><a href="/Project/html/home.html">WOOF</a></li>
-      <li align="left"><a href="/Project/html/user.html">User</a></li>
-      <li align="left"><a href="/Project/html/cart.html">Cart</a></li>
+      <li><a href="/Project/html/about.html">About us</a></li>
    </ul>
 </div>
 
 <div class="boding">
-   <div class="product">
+   <div class="cart-modal-overlay">
+      <div class="cart-modal">
+         <span class="close-btn">X</span>
+         <!-- in js -->
+            <div class="product-rows"> </div>
+            <div class="total">
+            <h1 class="cart-total">TOTAL</h1>
+               <span class="total-price">RM 0</span>
+               <button class="purchase-btn">PURCHASE</button>
+            </div>
+      </div>
+   </div>
+         
+   <div class="cart-btn">
+      <div class="menu_name">
+         <h1>Shop</h1>
+      </div>
+      <img src="/Project/image/cart_icon.png" id="cart">
+      <span class ="cart-quantity">0</span>
+   </div>
 
+   <div class="product">
       <div class="product_card">
          <div class="product_image">
             <span class="discount_tag">30%</span>
@@ -112,8 +142,11 @@
             <span class="org_price">RM 69.99</span>
          </div>
       </div>
-
    </div>
+</div>
+
+<div class="top-btn">
+   <a href="#top">&#11165;</a>
 </div>
 
 <div class="ending">
@@ -122,10 +155,12 @@
          LET’S  START  YOUR<br>
          SHOP JOURNEY
       </div>
-      <div class="button-box">
-         <a href="/Project/html/shop.html" class="button1">Get Started</a>
-         <img src="/Project/image/Logo.jpeg">
-      </div>
+         <div class="button-box">
+            <a href="/Project/html/shop.html" class="button1">Get Started</a>
+         </div>
+         <div class="logo_box">
+            <img src="/Project/image/Logo.jpeg">
+         </div>
       <div class="first">
          <ul>
             <li><b>FOR HIM</b></li>
@@ -146,8 +181,8 @@
       <div class="third">
          <ul>
             <li><b>INFO</b></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="/Project/html/about.html">About us</a></li>
+            <li><a href="/Project/html/FAQ.html">FAQ</a></li>
          </ul>
       </div>
       <div class="four">
@@ -158,5 +193,7 @@
       </div>
    </div>
 </div>
+<script src="/Project/js/shop.js">
+</script>
 </body>
 </html>
