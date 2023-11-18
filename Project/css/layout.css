@@ -25,16 +25,15 @@ a{
 
 /************************************** The heading******************************************/
 /* Mobile Styles */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
    .heading{
-      width: 768px;
+      width: 100%;
       grid-row: 1/2;
       grid-column: 1/4;
       display: grid;
       grid-template-columns: repeat(3,auto);
       grid-template-rows: repeat(2,auto);
-      justify-content: center;
-      margin: 0 auto;
+      padding: 10px 2vw;
       position: sticky;
       top: 0;
       left: 0;
@@ -45,7 +44,7 @@ a{
       width: 100%;
       display: flex;
       align-items: center;
-      padding: 10px 1vw;
+      padding: 10px 2vw;
       grid-row: 1/2;
       grid-column: 1/3;
       background: #FFF5E0;
@@ -103,11 +102,9 @@ a{
    .menu{
       grid-row: 2/2;
       grid-column: 1/4;
-      max-width: fit-content;
+      width: fit-content;
       display: flex;
       align-items: center;
-      
-      margin: 0px auto;
       border-top: 2px solid #3A4D39;
       background: #FFF5E0;
    }
@@ -115,10 +112,8 @@ a{
       background: #FFF5E0;
       border-bottom: 2px solid #FFF5E0;
       border-top: 2px solid #FFF5E0;
-      width: fit-content;
    }
    .menu a{
-      width: fit-content;
       display: flex;
       color: #3A4D39;
       font-family: 'Lucida Console';
@@ -178,30 +173,24 @@ a{
       position: sticky;
    }
    .ending .footer{
-      padding: 0px 1vw;
       display: grid;
       height: fit-content;
-      width: 100%;
-      grid-template-columns: repeat(2, auto);
+      width: 70%;
+      max-width: 768px;
+      padding: 10px 2vw;
+      grid-template-columns: repeat(2, minmax(150px, 350px));
       grid-template-rows: repeat(4, auto);
       background-color: #3A4D39;  
    }
    .ending .footer .continue{
-      grid-column:1/4;
+      width: max-content;
+      margin: 20px;
+      grid-column:1/2;
       grid-row: 1/2;
       color: #FFF5E0;
       font-family: Rockwell;
-      font-size: 20px;
-      margin: 20px;
+      font-size: 18px;
       letter-spacing: 5px;
-   }
-   #button-logo{
-      grid-column:1/3;
-      grid-row: 1/2;
-      display: flex;
-      align-self: last baseline;
-      justify-content: space-between;
-      padding-top: 70px;
    }
    .ending .footer .button-box .button1{
       align-items: center;
@@ -224,9 +213,25 @@ a{
       cursor: pointer;
       transition: 0.5s;
    }
+   .ending .footer .button-box{
+      width: 200px;
+      grid-column:1/2;
+      grid-row: 1/2;
+      margin-top: 70px;
+      display: grid;
+      align-items: last baseline;
+      justify-content: center;
+   }
+   .ending .footer .logo_box{
+      display: grid;
+      grid-column:2/3;
+      grid-row: 1/2;
+      align-items: last baseline;
+      margin: 0px 2vw;
+   }
    .ending .footer .logo_box img{
-      width: 50px;
-      height: 50px;
+      width: 80px;
+      height: 80px;
       object-fit: cover;
    }
    
@@ -293,6 +298,303 @@ a{
    /* 888888888 top-btn888888888 */
    .top-btn{
       grid-row: 2/3;
+      grid-column: 2/3;
+      bottom: 20px;
+      right: 20px;
+      display: grid;
+      position: sticky;
+      place-self: end;
+      justify-self: left;
+      margin:0 20px 20px 0px;
+   }
+   .top-btn > a{
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      font-size: 25px;
+      color: #3A4D39;
+      background-color: rgba(134,167,137,1);
+      font-weight:bolder;
+      text-align: center;
+   }
+}
+/* Tablet Styles */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+   .heading{
+      width: 100%;
+      grid-row: 1/2;
+      grid-column: 1/4;
+      display: grid;
+      grid-template-columns: repeat(3,auto);
+      grid-template-rows: repeat(2,auto);
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      background: #FFF5E0;
+   }
+   .nav{
+      width: 100%;
+      margin: 0px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 3vw;
+      grid-row: 1/2;
+      grid-column: 1/3;
+      background: #FFF5E0;
+   }
+   .nav .navbar{
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      right: 0;
+      background: #FFF5E0;
+   }
+   .nav .logo-name{
+      width: 100px;
+      display: flex;
+   }
+   .nav .navbar .search{
+      width: 500px;
+      display: flex;
+      align-items: center;
+   }
+   .search-box{
+      width: 80%;
+      height: 20px;
+      padding: 10px 20px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      border: 2px solid #3A4D39;
+      text-transform: capitalize;
+      font-family: Rockwell;
+      background: none;
+      color: #3A4D39;
+      outline: none;
+   }
+   .search-btn{
+      width: 20%;
+      height: 44px;
+      padding: 10px 20px;
+      border: 2px solid #3A4D39;
+      outline: none;
+      cursor: pointer;
+      background: #3A4D39;
+      color: #FFF5E0;
+      text-transform: capitalize;
+      font-family: Rockwell;
+      font-size: 19px;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+   }
+   .nav .navbar a{
+      display: non;
+   }
+   .nav .navbar a img{
+      width: 50px;
+      height: 50px;
+      margin: 10px 20px;
+      cursor: pointer;
+   }
+   .menu{
+      grid-row: 2/2;
+      grid-column: 1/4;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 2px solid #3A4D39;
+      background: #FFF5E0;
+   }
+   .menu li{
+      background: #FFF5E0;
+      border-bottom: 2px solid #FFF5E0;
+      border-top: 2px solid #FFF5E0;
+      min-width: 140px;
+   }
+   .menu a{
+      width: fit-content;
+      display: flex;
+      color: #3A4D39;
+      font-family: 'Lucida Console';
+      font-size: 18px;
+      line-height: 54px;
+      padding: 0 25px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+   }
+   .menu > li{
+      position: relative;
+      float: left;
+   }
+   .menu > li:first-child{
+      border-radius: 5px 0 0;
+   }
+   .submenu{
+      max-height: 0;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      z-index: 0;
+   }
+   .submenu li{
+      opacity: 0;
+      transform: rotateY('90deg');
+      transition:
+      opacity .4s, transform .5s;
+   }
+   .menu li:hover{
+      background-color: #FFF5E0;
+      border-bottom: 2px solid #FFF5E0;
+      border-top: 2px solid #FFF5E0;
+   }
+   .menu li:hover > a{
+      border-radius: 5px 0 0;
+      border-left: 3px solid #3A4D39;
+      color:#86A789;
+   }
+   .menu .submenu li:hover a{
+      border-left: 3px solid #3A4D39;
+      border-radius: 0;
+      color: #86A789;
+   }
+   .menu > li:hover .submenu{
+      min-height: 700px;
+      z-index: 10;
+   }
+   .menu > li:hover .submenu li{
+      transform: rotateY(0deg);
+      opacity: 1;
+   }
+   /************************************************************** Footer ****************************************************************************/
+   .ending{
+      width: 1024px;
+      display: grid;
+      grid-row: 3/4;
+      grid-column: 1/4;
+      position: sticky;
+   }
+   .ending .footer{
+      padding: 0px 3vw;
+      display: grid;
+      height: fit-content;
+      grid-template-columns: repeat(4, 1.5fr);
+      grid-template-rows: repeat(3, auto);
+      background-color: #3A4D39;  
+   }
+   .ending .footer .continue{
+      grid-column:1/4;
+      grid-row: 1/2;
+      color: #FFF5E0;
+      font-family: Rockwell;
+      font-size: 40px;
+      margin: 50px 20px;
+      letter-spacing: 5px;
+   }
+   .ending .footer .button-box{
+      grid-column:3/4;
+      grid-row: 1/2;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+   }
+   .ending .footer .logo_box{
+      display: grid;
+      grid-column:4/5;
+      grid-row: 1/2;
+      width: 100px;
+      height: 100px;
+      margin: 50px auto; 
+   }
+   .ending .footer .logo_box img{
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+   }
+   .ending .footer .button-box .button1{
+      align-items: center;
+      background-color: #3A4D39;
+      border: 3px solid #FFF5E0;
+      border-radius: 100px;
+      box-sizing: border-box;
+      color: #FFF5E0;
+      display: inline-flex;
+      font-family: Rockwell;
+      font-size: 18px;
+      height: fit-content;
+      width: 140px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.5s;
+   }
+   .ending .footer .button-box .button1:hover,.ending .footer .button-box.button1:focus{ 
+      background-color: #FFF5E0;
+      color: #3A4D39;
+      border-color: #FFF5E0;
+   }
+   .ending .footer .first{
+      grid-column: 1/2;
+      grid-row: 2/3;
+      height: fit-content;
+      margin: 20px 20px;
+   }
+   .ending .footer .second{
+      grid-column: 2/3;
+      grid-row: 2/3;
+      height: fit-content;
+      margin: 20px 20px;
+   }
+   .ending .footer .third{
+      grid-column: 3/4;
+      grid-row: 2/3;
+      height: fit-content;
+      margin: 20px 20px;
+   }
+   .ending .footer .four{
+      grid-column: 4/5;
+      grid-row: 2/3;
+      height: fit-content;
+      margin: 20px 20px;
+   }
+   .ending .footer div ul li b{
+      color: #FFF5E0;
+      font-family: 'Lucida Console';
+      font-size: 24px;
+   }
+   .ending .footer div ul li a{
+      display: block;
+      margin: 20px 0px;
+      background-color: #3A4D39;
+      color: #FFF5E0;
+      font-family: 'Lucida Console';
+      font-size: 18px;
+      text-decoration: none;
+      justify-content: center;
+      height: 20px;
+   }
+   .ending .footer div ul li > a:hover{
+      border-bottom: 2px solid #86A789;
+      width: fit-content;
+      color: #86A789;
+   }
+   .boding{
+      grid-row: 2/3;
+      grid-column: 1/4;
+      background-color: #FFF5E0;
+   }
+   /* 888888888 top-btn888888888 */
+   .top-btn{
+      grid-row: 2/3;
       grid-column: 3/4;
       bottom: 20px;
       display: grid;
@@ -330,7 +632,6 @@ a{
    }
    .nav{
       width: 90vw;
-      margin: 0px auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
