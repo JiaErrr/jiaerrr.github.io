@@ -27,11 +27,13 @@ a{
 }
 /* Mobile Styles */
 @media only screen and (max-width: 600px) {
+   body{
+      width: 80%;
+   }
    .boding{
       grid-row: 2/3;
       grid-column: 1/4;
       display: grid;
-      width: fit-content;
    }
    .home-image{
       width: 100%;
@@ -85,9 +87,8 @@ a{
       margin: 10px;
    }
    #content{
-      margin-left: 10px;
-      text-align: justify;
       font-size: 12px;
+      width: calc(80%);
    }
 }
 /* Tablet Styles */
