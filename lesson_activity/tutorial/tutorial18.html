@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Quiz 3</title>
+</head>
+<style>
+table{
+   border: 1px solid black;
+   border-spacing: 10px ;
+}  
+tr td{
+   padding: 5px 5px;
+   ;
+}
+.f_table{
+   width: 40vw;
+   padding: 10px 25px; 
+   border: 1px solid black; 
+   margin:20px auto;
+}
+.s_table, .t_table{
+   width: 100%;
+} 
+option{
+   display: block;
+   width: 100%;
+}
+u{
+   color: blue;
+}
+#red{
+   color: red;
+}
+.question_list{
+   display: block;
+   align-items: baseline;
+}
+.button{
+   justify-content:space-between ;
+   display: flex; 
+   width:30%; 
+   margin:30px auto;
+}
+sup{
+   color: red;
+}
+</style>
+<script>
+   function validateForm(){
+      
+      if((CourseSurvey.q1[0].checked == false) && (CourseSurvey.q1[1].checked == false))
+      {
+         alert("Please choose Question 1: Yes or No");
+         return false;
+      }
+      if((CourseSurvey.q2[0].checked == false) && (CourseSurvey.q2[1].checked == false))
+      {
+         alert("Please choose Question 2: Yes or No");
+         return false;
+      }
+      var group = document.CourseSurvey.q3;
+      for(var i = 0; i < group.length; i++)
+      {
+         if(group[i].checked)
+         {
+            checked = true;
+            break;
+         }
+      }
+      if(i == group.length)
+      {
+         alert("Please choose Question 3: What you learned");
+         return false;
+      }
+      let x = document.CourseSurvey.q4.value;
+      if(x == ""){
+         alert("Please provide your Wish items / Suggestion");
+         return false;
+      }
+   }
+</script>
+<body>
+<center>
+   <table class="f_table">
+      <tr><td align="center">
+         <h1>DCS3003 Website Design Course Survey</h1>
+         <form name="CourseSurvey" onsubmit="return validateForm()">
+         <table class="s_table">   
+            <tr>
+               <td colspan="4" color="blue"><u>Personal detail</u></td>
+            </tr>
+            <tr>
+               <td>Student ID</td>
+               <td>: <input type="text" name="student_id"></td>
+               <td>Student Name</td>
+               <td>: <input type="text" name="student_name"></td>
+            </tr>
+            <tr>
+               <td>Email address</td>
+               <td>: <input type="text" name="email_address"></td>
+               <td>IC No.</td>
+               <td>: <input type="text" name="ic_no"></td>
+            </tr>
+            <tr>
+               <td>Course</td>
+               <td>: <select ><option>List of Course</option></select></td>
+               <td>D.O.B</td>
+               <td>: <input type="date" name="d.o.b"></td>
+            </tr>
+         </table><br>
+      </td></tr>
+      <tr><td align="center">
+         <table class="t_table">
+            <tr>
+               <td colspan="2"><u>Question</u></td>
+            </tr>
+            <tr>
+               <td id="red" colspan="2">Please answer all question</td>
+            </tr>
+            <tr>
+               <td class="question_list"> 1) Have you grasped the content of the Website Design so far</td>
+               <td width="30%">
+                  <input type="radio" name="q1">Yes<br>
+                  <input type="radio" name="q1">No</td>
+            </tr>
+            <tr>
+               <td class="question_list"> 2) Can you now create a simple but interactive website?</td>
+               <td width="30%">
+                  <input type="radio" name="q2">Yes<br>
+                  <input type="radio" name="q2">No</td>
+            </tr></td>
+            <tr>
+               <td class="question_list"> 3) Website have you learned so far?</td>
+               <td width="30%">
+                  <input type="checkbox" name="q3">Knowledge <br>
+                  <input type="checkbox" name="q3">Practical Skills <br>
+                  <input type="checkbox" name="q3">Problem Solving <br>
+                  <input type="checkbox" name="q3">Self-Exploration skills <br>
+               </td>
+            </tr>
+            <tr>
+               <td width="100%" colspan="2">
+                  4) Wish items / suggestion <sup color="red">*</sup><br>
+                  <textarea cols="100%" rows="5" name="q4"></textarea>
+               </td>
+            </tr>
+         </table>
+      </td></tr>
+      <tr><td >
+         <div class="button">
+            <input type="reset" value="Reset" name="reset">
+            <input type="submit" value="submit" name="submit">
+         </div>
+      </form>
+      </td></tr>
+   </div>
+</center>   
+</body>
+</html>
