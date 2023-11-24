@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tutorial19</title>
+</head>
+<style>
+   form{
+      margin: 25% auto;
+      width: fit-content;
+
+   }
+   legend{
+      font-size: 20px;
+      font-weight: 900;
+   }
+   fieldset{
+      padding: 50px;
+   }
+   legend, fieldset{
+      text-align: center;
+   }
+   option{
+      text-transform: uppercase;
+   }
+   #course_dcs, #course_dib{
+      display: none ;
+   }
+</style>
+<script>
+   function showCourse() {
+      var loc = document.querySelector(".loc");
+      var courseDCS = document.getElementById("course_dcs");
+      var courseDIB = document.getElementById("course_dib");
+      if (loc.value === 'DCS') {
+         courseDCS.style.display = 'inline-block';
+         courseDIB.style.display = 'none';
+      } else if (loc.value === 'DIB') {
+         courseDCS.style.display = 'none';
+         courseDIB.style.display = 'inline-block';
+      } else {
+         courseDCS.style.display = 'none';
+         courseDIB.style.display = 'none';
+      }
+   }
+   function validateForm(){
+      var loc = document.querySelector(".loc");
+      var courseDCS = document.getElementById("course_dcs");
+      var courseDIB = document.getElementById("course_dib");
+
+      if (loc.value === '-LIST OF COURSE-' )
+      {
+         alert("Please select your course");
+         return false;
+      }
+      if ((loc.value === 'DCS') && (course_dcs.value === '-LIST OF SUBJECT-') 
+         || (loc.value === 'DIB') && (course_dcs.value === '-LIST OF SUBJECT-'))
+      {
+         alert("Please select your subject");
+         return false;
+      }
+      else{
+         alert("Thank submission");
+         form.resetForm;
+         return false;
+      }
+   }
+   function resetForm(){
+      alert("Form reset");
+      return true;
+   }
+</script>
+<body>
+<form name="SubjectSelection"id="Subject_selection" onsubmit="return validateForm()" onreset="return resetForm()">
+   <fieldset>
+   <legend>Subject Selection</legend>
+   Course : &nbsp; 
+   <select class="loc" onchange="showCourse()">
+      <option>-LIST OF COURSE-</option>
+      <option value="DCS" id="DCS">DCS</option>
+      <option value="DIB" id="DIB">DIB</option>
+   </select> &nbsp; &nbsp; 
+      <select id="course_dcs">
+         <option>-LIST OF SUBJECT-</option>
+         <option value="DCS" id="dcs2003">DCS2002</option>
+         <option value="DCS" id="dcs2004">DCS2004</option>
+         <option value="DCS" id="dcs2005">DCS2004</option>
+         <option value="DCS" id="dcs2006">DCS2004</option>
+      </select>
+      <select id="course_dib">
+         <option>-LIST OF SUBJECT-</option>
+         <option value="DIB" id="dib2003">DIB2002</option>
+         <option value="DIB" id="dib2004">DIB2004</option>
+         <option value="DIB" id="dib2005">DIB2004</option>
+         <option value="DIB" id="dib2006">DIB2004</option>
+      </select>
+      <br><br>
+      <input type="submit" value="SUBMIT">&nbsp;<input type="reset" value="RESET">
+   </fieldset>
+</form>
+</body>
+</html>
