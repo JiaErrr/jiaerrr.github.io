@@ -908,5 +908,21 @@ a{
       text-align: center;
    }
 }
+.information{
+   grid-column: 1/5;
+   height: fit-content;
+   margin: 20px 20px;
+}
+
+.information li{
+   background-color: #3A4D39;
+   color: #FFF5E0;
+   font-family: 'Rockwell';
+   font-size: 20px;
+   text-transform: uppercase;
+   text-align: center;
+}
+
+
 
 
