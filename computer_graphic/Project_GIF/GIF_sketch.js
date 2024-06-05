@@ -2,6 +2,8 @@ let maxSpeedOFgear = 0.38;
 let timer = 0;
 let gears = [];
 let medal;
+let a =0.0;
+let s = 0.0;
 
 function setup() {
    createCanvas(1280, 720);
@@ -38,6 +40,7 @@ function draw() {
       medal.drawRibbon2();
       medal.drawCircle(); 
       medal.draw1ST(); 
+      medal.drawStar();
    }
 
    if (frameCount >= 73.5) {
@@ -49,6 +52,7 @@ function draw() {
    if (timer >= 300) {
       frameCount = 0;
       timer = 0;
+      a = 0;
    }
    push();
    fill(255);
@@ -175,5 +179,37 @@ class Medal {
       textAlign(LEFT);
       text('ST', -5, 0);
       pop();
+   }
+   drawStar(){
+      push();
+      fill(255);
+      noStroke();
+      // Increment or decrement 'a' based on its value
+      if (a <= 180) {
+         a = a + 3.5;
+      } else {
+         a = a - 3.5;
+      }
+      // Map 's' to a range from 0 to 1 for scaling
+      let s = sin(a);
+      // Reset 'a' when it completes a full cycle
+      push();
+      translate(-60, -75);
+      scale(s);
+      rotate(35);
+      ellipse(0,0, 5, 70);
+      rotate(-1 * 95);
+      ellipse(0, 0, 6, 95);
+      pop();
+      
+
+         
+      // push();
+      // translate(-60, -75);
+      // rotate(35);
+      // ellipse(0,0, 5, 70);
+      // rotate(-1 * 95);
+      // ellipse(0, 0, 6, 95);
+      // pop();
    }
 }
