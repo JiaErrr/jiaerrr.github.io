@@ -1,18 +1,22 @@
 let maxSpeedOFgear = 0.38;
 let timer = 0;
 let gears = [];
+let gS = 1;
 let medal;
-let a =0.0;
-let s = 0.0;
+let cA1 = 0.0;
+let cA2 = 0.0;
+let a1 = 0.0;
+let a2 = 0.0;
+let a3 = 0.0;
 
 function setup() {
    createCanvas(1280, 720);
    angleMode(DEGREES); // Set angle mode to DEGREES
-   frameRate(165);
+   frameRate(20);
 
-   let gear1 = new Gear(-115, 65, 100, 25, 8, 9); // Angle speed in degrees
-   let gear2 = new Gear(115, -65, 100, 25, 8, -9); // Angle speed in degrees
-   let gear3 = new Gear(65, 115, 50, 12.5, 8, 10.8); // Angle speed in degrees
+   let gear1 = new Gear(-115, 65, 100, 25, 8, 4.5); // Angle speed in degrees
+   let gear2 = new Gear(115, -65, 100, 25, 8, -4.5); // Angle speed in degrees
+   let gear3 = new Gear(65, 115, 50, 12.5, 8, 5.4); // Angle speed in degrees
 
    medal = new Medal(0,0, 200, 180);
 
@@ -28,35 +32,50 @@ function setup() {
 function draw() {
    background(173, 216, 230); // Light blue background
 
-   let t = min(frameCount / 80, 1); // Time factor
+   let t = min(timer, 1); // Time factor
 
    gears.forEach(gear => {
       gear.update(t);
       gear.display();
    });
    
-   if (frameCount >= 72.5) {
-      medal.drawRibbon1();
-      medal.drawRibbon2();
-      medal.drawCircle(); 
+   if (timer >= 65) {
+      medal.drawCircle1(); 
+   }
+   if (timer >= 75) {
+      medal.drawCircle2(); 
       medal.draw1ST(); 
-      medal.drawStar();
    }
 
-   if (frameCount >= 73.5) {
-      
+   if (frameCount >= 80) {
+      medal.drawStar1();
+   }
+
+   if (frameCount >= 130) {
+      medal.drawStar2();
+   }
+
+   if (frameCount >= 180) {
+      medal.drawStar3();
    }
    
    // Timer
    timer += 1;  
    if (timer >= 300) {
-      frameCount = 0;
+      frameCount = 1;
       timer = 0;
-      a = 0;
+      cA = 0;
+      a1 = 0;
+      a2 = 0;
+      a3 = 0;
    }
+
    push();
    fill(255);
+   textSize(20);
    text(frameCount, 200, 200);
+   textSize(20);
+   text(timer, 200, 250);
    pop();
 }
 
@@ -85,7 +104,13 @@ class Gear {
       fill(255, 204, 0);
       stroke("#FDB202");
       strokeWeight(2);
-
+      if(frameCount >= 60){
+         gS = 0;
+      }
+      else{
+         gS = 1;
+      }
+      scale(gS);
       beginShape();
       for (let i = 0; i < 360; i += 360 / this.numTeeth) {
          let angle1 = i;
@@ -98,7 +123,6 @@ class Gear {
          let outerY2 = sin(angle2) * this.radius;
          let innerX2 = cos(angle2) * (this.radius - this.toothDepth);
          let innerY2 = sin(angle2) * (this.radius - this.toothDepth);
-
          vertex(innerX1, innerY1);
          vertex(outerX1, outerY1);
          vertex(outerX2, outerY2);
@@ -125,13 +149,51 @@ class Medal {
       this.outerRadius = outerRadius;
       this.innerRadius = innerRadius;
    }
-   
+   drawCircle1() {
+      if(frameCount >= 60){
+         if (cA1 <= 90){
+            cA1 += 1;
+         }
+         else{
+            cA1 = 90;
+         }
+      }
+      let cS1 = abs(sin(cA1));
+      push();
+      translate((width / 2) + this.x, (height / 2) + this.y);
+      scale(cS1);
+      fill(255, 204, 0);
+      stroke("#FDB202");
+      strokeWeight(2);
+      ellipse(0, 0, this.outerRadius);
+      pop();
+   }
+   drawCircle2() {
+      if(frameCount >= 70){
+         if (cA2 <= 90){
+            cA2 += 1;
+         }
+         else{
+            cA2 = 90;
+         }
+      }
+      let cS2 = abs(sin(cA2));
+      push();
+      translate((width / 2) + this.x, (height / 2) + this.y);
+      scale(cS2);
+      fill(255, 204, 0);
+      stroke("#FDB202");
+      strokeWeight(2);
+      ellipse(0, 0, this.innerRadius);
+      pop();
+   }
+
    drawRibbon1() {
+      push();
       translate(width / 2 + this.x, height / 2 + this.y);
       fill(255, 204, 0);
       stroke("#FDB202");
       strokeWeight(2);
-      push();
       rotate(25);
       beginShape();
       vertex(-40, 0);
@@ -142,11 +204,13 @@ class Medal {
       endShape(CLOSE);
       pop();
    }
+
    drawRibbon2() {
+      push();
+      translate(width / 2 + this.x, height / 2 + this.y);
       fill(255, 204, 0);
       stroke("#FDB202");
       strokeWeight(2);
-      push();
       rotate(335);
       beginShape();
       vertex(-40, 0);
@@ -158,18 +222,11 @@ class Medal {
       pop();
    }
 
-   drawCircle() {
-      push();
-      fill(255, 204, 0);
-      stroke("#FDB202");
-      strokeWeight(2);
-      ellipse(0, 0, this.outerRadius);
-      ellipse(0, 0, this.innerRadius);
-      pop();
-   }
+   
 
    draw1ST(){
       push();
+      translate(width / 2 + this.x, height / 2 + this.y);
       fill(255);
       noStroke();
       textSize(90);
@@ -180,36 +237,64 @@ class Medal {
       text('ST', -5, 0);
       pop();
    }
-   drawStar(){
+
+   drawStar1(){
       push();
+      translate(width / 2 + this.x, height / 2 + this.y);
       fill(255);
       noStroke();
-      // Increment or decrement 'a' based on its value
-      if (a <= 180) {
-         a = a + 3.5;
+      if (a1 <= 180) {
+         a1 += 3.5;
       } else {
-         a = a - 3.5;
+         a1 -= 3.5;
       }
-      // Map 's' to a range from 0 to 1 for scaling
-      let s = sin(a);
-      // Reset 'a' when it completes a full cycle
-      push();
+      let s1 = abs(sin(a1));  // Ensure scale is positive
       translate(-60, -75);
-      scale(s);
+      scale(s1);
       rotate(35);
-      ellipse(0,0, 5, 70);
-      rotate(-1 * 95);
+      ellipse(0, 0, 5, 70);
+      rotate(-95);
       ellipse(0, 0, 6, 95);
       pop();
-      
+   }
 
-         
-      // push();
-      // translate(-60, -75);
-      // rotate(35);
-      // ellipse(0,0, 5, 70);
-      // rotate(-1 * 95);
-      // ellipse(0, 0, 6, 95);
-      // pop();
+   drawStar2(){
+      push();
+      translate(width / 2 + this.x, height / 2 + this.y);
+      fill(255);
+      noStroke();
+      if (a2 <= 180) {
+         a2 += 3.5;
+      } else {
+         a2 -= 3.5;
+      }
+      let s2 = abs(sin(a2));  // Ensure scale is positive
+      translate(90, 35);
+      scale(s2);
+      rotate(35);
+      ellipse(0, 0, 5, 70);
+      rotate(-95);
+      ellipse(0, 0, 6, 95);
+      pop();
+   }
+
+   drawStar3(){
+      push();
+      translate(width / 2 + this.x, height / 2 + this.y);
+      fill(255);
+      noStroke();
+      if (a3 <= 180) {
+         a3 += 3.5;
+      } else {
+         a3 -= 3.5;
+      }
+      let s3 = abs(sin(a3));  // Ensure scale is positive
+      translate(-85, 40);
+      scale(s3);
+      rotate(35);
+      ellipse(0, 0, 5, 70);
+      rotate(-95);
+      ellipse(0, 0, 6, 95);
+      pop();
    }
 }
