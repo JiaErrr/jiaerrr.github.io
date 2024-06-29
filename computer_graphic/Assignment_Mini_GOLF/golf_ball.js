@@ -18,7 +18,6 @@ class GolfBall {
     }
   }
   
-  
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
@@ -81,11 +80,9 @@ class GolfBall {
   applySlopeGravity(slope) {
     let below = slope.below(this.position, this.radius);
     if (below > 0) {
+      this.velocity.mult(1.101);
       this.position.y -= below;
-      this.acceleration.set(0.01 * slope.angle / 2.8, 0);
-      // let slopeDirection = createVector(slope.end.x - slope.start.x, slope.end.y - slope.start.y, slope.end.z - slope.start.z);
-      // slopeDirection.normalize();
-      // this.acceleration.add(p5.Vector.mult(slopeDirection, -0.05));
+      this.acceleration.set(0.01 * slope.angle / 2.28, 0);
     }
   }
 
@@ -123,9 +120,9 @@ class GolfBall {
     }
   
     if(this.position.x > -500 && this.position.x < -300 && this.position.z < -100 && this.position.x > -500){
-      if(this.position.x < -440 && this.position.x > -360 && this.position.z < -400 && this.position.z > -350
+      if(this.position.x > -480 && this.position.x < -320 && this.position.z > -450 && this.position.z < -350
         && this.position.y >= -118 - this.radius && this.position.y < -10){
-        if (!(this.position.x > -480 && this.position.x < -320 && this.position.z > -450 && this.position.z < -350)) {
+        if (!(this.position.x > -440 && this.position.x < -360 && this.position.z > -450 && this.position.z < -350)) {
           this.position.y = -118 - this.radius;
           this.velocity.y *= -0.9;
         }
@@ -189,7 +186,7 @@ class GolfBall {
       this.position.z = -880 + this.radius;
       reflect = true;
     } 
-    else if (this.position.z > -720 - this.radius && this.position.z < -700 && this.position.x < -100 && this.position.x > -200) {
+    else if (this.position.z > -720 - this.radius && this.position.z < -600 && this.position.x < -100 && this.position.x > -300) {
       this.velocity.z *= -1;
       this.position.z = -720 - this.radius;
       reflect = true;
@@ -227,6 +224,9 @@ class GolfBall {
         this.velocity.z *= -1;
         this.position.z = -880 + this.radius;
         reflect = true;
+      }
+      if(this.position.z < -101 && this.position.z > -151 && this.position.x > -500 && this.position.x < -300){
+        this.velocity.mult(1.45);
       }
     }
   }
