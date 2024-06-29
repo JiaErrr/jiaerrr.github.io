@@ -24,7 +24,7 @@ function setup() {
   angleMode(DEGREES);
   rectMode(CENTER);
 
-  golf_ball = new GolfBall(-400, -150, 150, 5);
+  golf_ball = new GolfBall(0, -150, 0, 5);
   slope = new Slope(createVector(-100, 2, -700), createVector(-300, -118, -900), 60);
   cameraInstance = new Camera(0, -200, 400, 0, 0, 0, 0, 1, 0);
 
