@@ -5,13 +5,14 @@ class Camera {
     this.up = createVector(uX, uY, uZ);
     this.offset = createVector(0, -200, 400); // Default offset for following the ball
     this.manualControl = false;
+    this.angle = 0; // Initialize the angle for circular motion
+    this.radius = 600; // Radius of the circle
   }
 
   update(golf_ball) {
     if (!ballIsStatic) {
       this.manualControl = false;
     }
-
     // Manual camera control
     if (keyIsDown(65)) { // 'A' key
       this.position.x -= 5;
@@ -63,5 +64,11 @@ class Camera {
       this.up.x, this.up.y, this.up.z
     );
     perspective(70);
+  }
+
+  updateStart() {
+    this.angle += 0.2; // Increment the angle to move the camera
+    this.position.x = this.radius * cos(this.angle);
+    this.position.z = this.radius * sin(this.angle);
   }
 }

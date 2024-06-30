@@ -1,32 +1,44 @@
 let golf_ball;
+let home, setting, start_button, setting_button;
 let modelInstances = [];
 let grounds = [];
 let slope;
 let straight, corner1, ramp, corner2, side, open, hole_square, gap;
-let cameraInstance;
+let cameras = [];
+let star_page = true;
+let game_page = false;
 let ballIsStatic = true;
 let lineVisible = false;
 let startPos, endPos, direction, force;
-let forceModifier = 0.5;
+let forceModifier = 0.2;
 let maxForce = 13;
 let start;
+let settingsContainer; // Settings container
+let menu; 
+let currentVolume = 0.5;
 var colorFill = [
   '#D37676',
   '#B0C5A4',
   '#C7C8CC',
   '#EEEDEB',
   '#FDFFAB'
-]
+];
+let constrainedDistance = 0; 
+let showGround = true; 
 
 function setup() {
-  createCanvas(1280, 720, WEBGL);
+  
+  let canvas = createCanvas(1280, 720, WEBGL);
+  canvas.center();
+  canvas.position(windowWidth / 2 - width / 2, 150); // Correct the canvas position
   frameRate(165);
   angleMode(DEGREES);
   rectMode(CENTER);
 
   golf_ball = new GolfBall(0, -150, 0, 5);
   slope = new Slope(createVector(-100, 2, -700), createVector(-300, -118, -900), 60);
-  cameraInstance = new Camera(0, -200, 400, 0, 0, 0, 0, 1, 0);
+  cameras.push(new Camera(0, -200, 400, 0, 0, 0, 0, 1, 0));
+  cameras.push(new Camera(500, -400, 500, 0, 0, 0, 0, 1, 0));
 
   modelInstances.push(new Model(0, 0, 0, straight, 0, 1, 0));
   modelInstances.push(new Model(0, 0, -200, straight, 0, 1, 0));
@@ -43,17 +55,20 @@ function setup() {
 
   grounds.push(new Ground(-400, -109, -400, 1, 0));
   grounds.push(new Ground(-200, -50, -800, 1, 30));
-  // grounds.push(new Ground(-400, -109, -400, 1, 0));
   grounds.push(new Ground(0, 9, 0, 1, 0));
   grounds.push(new Ground(0, 9, -200, 1, 0));
   grounds.push(new Ground(0, 9, -400, 1, 0));
   grounds.push(new Ground(0, 9, -600, 1, 0));
-  grounds.push(new Ground(0, 9, -780, 1, 0));
-  grounds.push(new Ground(-400, -109, -780, 1, 0));
+  grounds.push(new Ground(0, 8, -780, 1, 0));
+  grounds.push(new Ground(-400, -110, -780, 1, 0));
   grounds.push(new Ground(-410, -109, -600, 1, 0));
   grounds.push(new Ground(-390, -109, -200, 1, 0));
   grounds.push(new Ground(-400, 9, 200, 1, 0));
-  
+  grounds.push(new Ground(-425, -118, -150, 3, 0));
+  grounds.push(new Ground(-375, -118, -150, 3, 0));
+  grounds.push(new Ground(-325, -118, -150, 3, 0));
+
+  displayHome(); // Call displayHome initially to show the home screen
 }
 
 function preload() {
@@ -66,20 +81,234 @@ function preload() {
   hole_square = loadModel('../Assignment_Mini_GOLF/model/hole-square.obj', true);
   end = loadModel('../Assignment_Mini_GOLF/model/end.obj', true);
   gap = loadModel('../Assignment_Mini_GOLF/model/gap.obj', true);
+  speed = loadImage('../Assignment_Mini_GOLF/model/speed_up.png');
+  gamePlay = loadImage('../Assignment_Mini_GOLF/model/game_play.jpg');
+  menu = loadSound('../Assignment_Mini_GOLF/model/menu.mp3');
+  
+}
+
+function displayHome() {
+  home = createElement('img');
+  setting = createDiv();
+  start_button = createButton('Play');
+  setting_button = createButton('Setting');
+
+  home.position(windowWidth / 2 - 180, 200); // Correct the home image position
+  home.size(360, 360);
+  home.attribute('src', '../Assignment_Mini_GOLF/model/mini_golf_party.png');
+
+  setting.position(windowWidth / 2 - 180, height/2); // Correct the home image position
+  setting.size(500, 500);
+  setting.attribute('src', '');
+
+  start_button.position(windowWidth / 2 - 100, 600); // Correct the start button position
+  start_button.size(200, 50);
+  start_button.style('color', '#012721');
+  start_button.style('border', '3px solid #012721');
+  start_button.style('border-radius', '100px');
+  start_button.style('background-color', '#FCE8D0');
+  start_button.style('font-family', 'Rockwell');
+  start_button.style('font-size', '20px');
+  start_button.style('cursor', 'pointer');
+  start_button.style('transition', '0.5s');
+  start_button.mouseOver(() => {
+    start_button.style('color', '#FCE8D0');
+    start_button.style('background-color', '#012721');
+  });
+  start_button.mouseOut(() => {
+    start_button.style('color', '#012721');
+    start_button.style('background-color', '#FCE8D0');
+    start_button.style('border', '3px solid #012721');
+  });
+  start_button.mousePressed(startGame); 
+
+  setting_button.position(windowWidth / 2 - 100, 700); 
+  setting_button.size(200, 50);
+  setting_button.style('color', '#012721');
+  setting_button.style('border', '3px solid #012721');
+  setting_button.style('border-radius', '100px');
+  setting_button.style('background-color', '#FCE8D0');
+  setting_button.style('font-family', 'Rockwell');
+  setting_button.style('font-size', '20px');
+  setting_button.style('cursor', 'pointer');
+  setting_button.style('transition', '0.5s');
+  setting_button.mouseOver(() => {
+    setting_button.style('color', '#FCE8D0');
+    setting_button.style('background-color', '#012721');
+  });
+  setting_button.mouseOut(() => {
+    setting_button.style('color', '#012721');
+    setting_button.style('background-color', '#FCE8D0');
+    setting_button.style('border', '3px solid #012721');
+  });
+  setting_button.mousePressed(displaySetting); 
+
+  // Start the background music and loop it if not already playing
+  if (menu.isLoaded() && !menu.isPlaying()) {
+    menu.setLoop(true);
+    menu.play();
+  }
+}
+
+function displaySetting() {
+  // Remove any existing settings container
+  if (settingsContainer) {
+    settingsContainer.remove();
+  }
+
+  // Create settings container
+  settingsContainer = createDiv();
+  settingsContainer.id('settingsContainer');
+  settingsContainer.position(windowWidth / 2 - 262, 150);
+  settingsContainer.size(500, 400);
+  settingsContainer.style('background-color', '#FCE8D0');
+  settingsContainer.style('border', '2px solid #012721');
+  settingsContainer.style('border-radius', '20px');
+  settingsContainer.style('padding', '20px');
+  
+  // Sound volume control
+  let soundLabel = createP('Sound:');
+  soundLabel.parent(settingsContainer);
+  soundLabel.style('font-family', 'Rockwell');
+  soundLabel.style('font-size', '20px');
+  soundLabel.style('color', '#012721');
+  console.log('Sound label created');
+
+  let volumeSlider = createSlider(0, 1, currentVolume, 0.01); 
+  volumeSlider.parent(settingsContainer);
+  volumeSlider.style('-webkit-appearance', 'none');
+  volumeSlider.style('appearance', 'none');
+  volumeSlider.style('-width', '100%');
+  volumeSlider.style('background', '#012721');
+  volumeSlider.style('border-radius', '5px');
+  volumeSlider.style('cursor', 'pointer');
+  volumeSlider.style('outline', 'none');
+  volumeSlider.style('opacity', '0.7');
+  volumeSlider.style('-webkit-transition', '.2s');
+  volumeSlider.style('transition', 'opacity . 2s');
+  volumeSlider.input(() => {
+    currentVolume = volumeSlider.value(); 
+    menu.setVolume(currentVolume);
+  });
+
+  // Ball color selection
+  let colorLabel = createP('Ball Color:');
+  colorLabel.parent(settingsContainer);
+  colorLabel.style('font-family', 'Rockwell');
+  colorLabel.style('font-size', '20px');
+  colorLabel.style('color', '#012721');
+  console.log('Color label created');
+
+  colorFill.forEach((color) => {
+    let colorButton = createButton('');
+    colorButton.parent(settingsContainer);
+    colorButton.style('background-color', color);
+    colorButton.style('border', 'none');
+    colorButton.style('border-radius', '50%');
+    colorButton.style('width', '30px');
+    colorButton.style('height', '30px');
+    colorButton.style('margin', '5px');
+    colorButton.style('cursor', 'pointer');
+    if (golf_ball.fill_color === color) {
+      colorButton.style('border', '5px solid #012721');
+    }
+    colorButton.mousePressed(() => {
+      golf_ball.fill_color = color;
+      console.log('Selected ball color:', color);
+      document.querySelectorAll('button').forEach(btn => btn.style.border = 'none'); // Remove border from all buttons
+      colorButton.style('border', '5px solid #012721');
+    });
+  });
+
+
+  // Save button
+  let saveButton = createButton('SAVE');
+  saveButton.parent(settingsContainer);
+  saveButton.position(200, 350); // Adjust position as needed
+  saveButton.size(220, 50);
+  saveButton.style('color', '#FCE8D0');
+  saveButton.style('width', '120px');
+  saveButton.style('background-color', '#012721');
+  saveButton.style('border', 'none');
+  saveButton.style('border-radius', '100px');
+  saveButton.style('font-family', 'Rockwell');
+  saveButton.style('font-size', '20px');
+  saveButton.style('cursor', 'pointer');
+  saveButton.mousePressed(() => {
+    settingsContainer.remove(); // Remove settings container
+  });
+  saveButton.mouseOut(() => {
+    saveButton.style('color', '#FCE8D0');
+    saveButton.style('background-color', '#012721');
+  });
+  saveButton.mouseOver(() => {
+    saveButton.style('color', '#012721');
+    saveButton.style('background-color', '#FCE8D0');
+    saveButton.style('border', '3px solid #012721');
+  });
+
+  // Hide settings page if clicked outside
+  settingsContainer.mousePressed((e) => e.stopPropagation());
+  canvas.mousePressed(() => settingsContainer.remove());
+}
+
+
+function startGame() {
+  home.remove();
+  start_button.remove();
+  setting_button.remove();
+  star_page = false;
+  game_page = true;
 }
 
 function draw() {
   background(225);
   ambientLight(128, 128, 128);
-  directionalLight(128, 128, 128, 1, 2, 1);
-  directionalLight(0, 1, 1, 1, -1, 0);
-  cameraInstance.update(golf_ball);
-  cameraInstance.display();
+  directionalLight(128, 128, 128, 1, 5, 1);
+  
+  if (star_page) {
+    cameras[1].updateStart();
+    cameras[1].display();
+    if (showGround) {
+      drawGround();
+    }
+  } 
+  else if (game_page) {
+    cameras[0].update(golf_ball);
+    cameras[0].display();
+    drawGround();
 
+    start = golf_ball.position.copy();
+    let gravity = createVector(0, 0.2, 0); // World gravity
+    let weight = p5.Vector.mult(gravity, golf_ball.mass); // Weight of the golf ball
+    golf_ball.applyForceGravity(weight);
+    golf_ball.applySlopeGravity(slope);
+    golf_ball.applyFriction();
+    golf_ball.update();
+    golf_ball.reset();
+    golf_ball.checkGroundCollision();
+    golf_ball.checkModelCollisions();
+    golf_ball.display();
+
+    if (ballIsStatic) {
+      let mousePosition = createVector(mouseX - width / 2, golf_ball.position.y, mouseY - height / 2);
+      drawLine(golf_ball, mousePosition, maxForce, forceModifier);
+    }
+
+    if (golf_ball.isBallInHole() === true) {
+      game_page = false;
+      star_page = true;
+      showGround = true; 
+      golf_ball.reset();
+      displayHome(); 
+    }
+  }
+}
+
+function drawGround(){
   modelInstances.forEach(modelInstance => {
     modelInstance.displayModel();
   });
-
   grounds[0].displayGap();
   grounds[1].displaySlope();
   grounds[2].display();
@@ -91,208 +320,62 @@ function draw() {
   grounds[8].displaySide();
   grounds[9].displaySide();
   grounds[10].displayEnd();
-  start = golf_ball.position.copy();
-  let gravity = createVector(0, 0.2, 0); // World gravity
-  let weight = p5.Vector.mult(gravity, golf_ball.mass); // Weight of the golf ball
-  golf_ball.applyForceGravity(weight);
-  golf_ball.applySlopeGravity(slope);
-  golf_ball.applyFriction();
-  golf_ball.update();
-  golf_ball.reset();
-  golf_ball.checkGroundCollision();
-  golf_ball.checkModelCollisions();
-  golf_ball.display();
-
-  if (ballIsStatic) {
-    // console.log(`${ballIsStatic}`);
-    let mousePosition = createVector(mouseX - width / 2, golf_ball.position.y, mouseY - height / 2);
-    drawLine(golf_ball, mousePosition, maxForce, forceModifier);
-  }
-
-
+  grounds[11].displaySpeed();
+  grounds[12].displaySpeed();
+  grounds[13].displaySpeed();
 }
 
 function mousePressed() {
   if (ballIsStatic) {
-    startPos = createVector(mouseX - width / 2, golf_ball.position.y, mouseY - height / 2);
+    let mouse3D = screenToWorld(mouseX, mouseY);
+    startPos = createVector(mouse3D.x, golf_ball.position.y, mouse3D.z);
     lineVisible = true;
+    constrainedDistance = 0;
   }
 }
 
 function mouseDragged() {
   if (ballIsStatic && lineVisible) {
-    endPos = createVector(mouseX - width / 2, golf_ball.position.y, mouseY - height / 2);
+    let mouse3D = screenToWorld(mouseX, mouseY);
+    endPos = createVector(mouse3D.x, golf_ball.position.y, mouse3D.z);
     if (startPos && endPos) {
       let distance = p5.Vector.dist(startPos, endPos);
       force = constrain(distance * forceModifier, 0, maxForce);
+      constrainedDistance = constrain(distance * forceModifier, 0, maxForce * 2); // Update constrainedDistance
     }
   }
 }
 
 function mouseReleased() {
   if (ballIsStatic && lineVisible) {
-    lineVisible = false;
-    endPos = createVector(mouseX - width / 2, golf_ball.position.y, mouseY - height / 2);
+    let mouse3D = screenToWorld(mouseX, mouseY);
+    endPos = createVector(mouse3D.x, golf_ball.position.y, mouse3D.z);
     direction = createVector(startPos.x - endPos.x, 0, startPos.z - endPos.z);
     if (direction.mag() > 0) {
+      force = constrain(direction.mag() * forceModifier, 0, maxForce);
       golf_ball.applyForce(direction, force);
       ballIsStatic = false;
     }
-    force = 0;
+    lineVisible = false;
+    constrainedDistance = 0; 
   }
 }
 
-function drawLine(golf_ball, mousePosition, maxForce, forceModifier) {
+function screenToWorld(screenX, screenY) {
+  let x = screenX - width / 2;
+  let y = screenY - height / 2;
+  return createVector(x, 0, y); // Adjust the y-coordinate based on your game logic
+}
+
+function drawLine(golf_ball, mousePosition) {
   if (lineVisible) {
     let start = golf_ball.position.copy();
-
-    // Use the current y value of the golf ball for the line
-    let constantY = start.y;
-
-    // Calculate the direction vector from the golf ball to the mouse position
     let direction = p5.Vector.sub(mousePosition, start);
-    direction.y = start.y; // Ensure the line remains on the constant y-plane
-
-    // Calculate the distance and constrain it by the max force
-    let distance = direction.mag();
-    let constrainedDistance = constrain(distance * forceModifier, 0, maxForce * 2);
-
-    // Normalize the direction vector and scale by the constrained distance
     direction.normalize();
     direction.mult(constrainedDistance * 5);
-
-    // Calculate the end position of the line
     let end = p5.Vector.add(start, direction);
-
     stroke(colorFill[2]);
     strokeWeight(10);
-    line(start.x, constantY, start.z, end.x, constantY, end.z);
+    line(start.x, start.y, start.z, end.x, end.y, end.z);
   }
 }
-
-class Ground{
-	constructor(x, y, z, i, r){
-		this.position = createVector(x, y, z);
-		this.i = i;
-		this.r = r;
-	} 
-	
-	display() {
-		push();
-		fill(colorFill[this.i]);
-    noStroke();
-		translate(this.position.x, this.position.y, this.position.z);
-		rotate(this.r);
-		box(160, 14.25, 200.01);
-		pop();
-	}
-  displaySide() {
-		push();
-		fill(colorFill[this.i]);
-    noStroke();
-		translate(this.position.x, this.position.y, this.position.z);
-		rotateY(this.r);
-		box(180.01, 14.25, 200.01);
-		pop();
-	}
-  displaySlope() {
-		push();
-		fill(colorFill[this.i]);
-    noStroke();
-		translate(this.position.x, this.position.y, this.position.z);
-		rotate(this.r);
-		box(240.25, 14.25, 180);
-		pop();
-	}
-  displayCorner(){
-    push();
-		fill(colorFill[this.i]);
-    noStroke();
-		translate(this.position.x, this.position.y, this.position.z);
-		rotate(this.r);
-		box(198, 14.25, 200.01);
-		pop();
-  }
-  displayGap(){
-    push();
-    noStroke();
-    fill(colorFill[this.i]);
-    translate(this.position.x, this.position.y, this.position.z);
-    push();
-    translate(0, 0, 75);
-    box(180, 14.25, 50.01);
-    pop();
-    push();
-    translate(0, 0, -75);
-    box(180, 14.25, 50.01);
-    pop();
-    push();
-    translate(-60, 0, 0);
-    box(40.01, 14.25, 100);
-    pop();
-    push();
-    translate(60, 0, 0);
-    box(40.01, 14.25, 100);
-    pop();
-    pop();
-  }
-  displayEnd(){
-    push();
-    noStroke();
-    fill(colorFill[this.i]);
-    translate(this.position.x, this.position.y, this.position.z);
-    
-    push();
-    translate(0, -7.1, 40);
-    // rotateX(90);
-    rotateY(65);
-    box(60,7, 60);
-    pop();
-    push();
-    translate(0, -7.1, -45);
-    rotateX(90);
-    rotateZ(65);
-    plane(60);
-    pop();
-    push();
-    translate(45, -7.1, 0);
-    rotateX(90);
-    rotateZ(65);
-    plane(60);
-    pop();
-    push();
-    translate(-45, -7.1, 0);
-    rotateX(90);
-    rotateZ(65);
-    plane(60);
-    pop();
-    push();
-    translate(-30, -7.1, 30);
-    rotateX(90);
-    rotateZ(-65);
-    plane(60);
-    pop();
-    push();
-    translate(30, -7.1, -30);
-    rotateX(90);
-    rotateZ(-65);
-    plane(60);
-    pop();
-    push();
-    translate(30, -7.1, 30);
-    rotateX(90);
-    rotateZ(-65);
-    plane(60);
-    pop();
-    push();
-    translate(-30, -7.1, -30);
-    rotateX(90);
-    rotateZ(-65);  
-    plane(60);
-    pop();
-    pop();
-  }
-}
-
-
-

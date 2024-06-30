@@ -8,13 +8,14 @@ class GolfBall {
     this.maxVelocity = 40;
     this.mass = m;
     this.radius = sqrt(this.mass) * 5;
+    this.holePosition = createVector(-400, 10, 200);
+    this.fill_color = colorFill[3];
   }
   
   reset() {
-    if (this.position.y > 500 || (dist(this.position.x, this.position.z, -400, 200) <= this.radius * 1.1) && this.position.y < 9 ) {
+    if (this.position.y > 500 || this.position.x > -500 && this.position.x < -300 && this.position.z < -100 && this.position.x > -500 && this.position.y >= this.holePosition.y - this.radius) {
       this.position = createVector(this.tempPosition.x, this.tempPosition.y, this.tempPosition.z);
       this.velocity.set();
-      console.log("WIN");
     }
   }
   
@@ -26,7 +27,6 @@ class GolfBall {
   
     if (this.isBallInHole()) {
       this.reset();
-      console.log("WIN");
     } else {
       let diff1 = 0 - (this.position.y + this.radius);
       let diff2 = -118- (this.position.y + this.radius);
@@ -55,7 +55,7 @@ class GolfBall {
   display() {
     push();
     noStroke();
-    fill(colorFill[3]);
+    fill(this.fill_color);
     translate(this.position.x, this.position.y, this.position.z);
     sphere(this.radius);
     pop();
@@ -82,7 +82,7 @@ class GolfBall {
     if (below > 0) {
       this.velocity.mult(1.101);
       this.position.y -= below;
-      this.acceleration.set(0.01 * slope.angle / 2.28, 0);
+      this.acceleration.set(0.01 * slope.angle / 2, 0);
     }
   }
 
@@ -96,12 +96,10 @@ class GolfBall {
   
     if (this.position.x > -500 && this.position.x < -300 && this.position.z > 100 && this.position.z < 300) {
       if (this.position.y >= 0 - this.radius) {
-        console.log(`${dist(this.position.x, this.position.z, -400, 200)}`);
-        if (dist(this.position.x, this.position.z, -400, 200) <= this.radius * 1.1) {
-          this.position.y = 20 - this.radius;
-          this.velocity.y *= -0.9;
-          this.reset();
-          console.log("WIN");
+        // console.log(`${dist(this.position.x, this.position.z, -400, 200)}`);
+        if (dist(this.position.x, this.position.z, -400, 200) <= this.radius * 1.1 ) {
+          this.position.y = 10 - this.radius;
+          this.velocity.y *= -1;
         } else {
           this.position.y = 0 - this.radius;
           this.velocity.y *= -0.9;
@@ -131,10 +129,7 @@ class GolfBall {
   }
   
   isBallInHole() {
-    let holePosition = createVector(-400, 8.82, 200);
-    let distanceToHole = dist(this.position.x, this.position.y, this.position.z, holePosition.x, holePosition.y, holePosition.z);
-  
-    if (distanceToHole <= this.radius * 1.1) {
+    if ( this.position.y === this.holePosition.y - this.radius && dist(this.position.x, this.position.z, -400, 200) <= this.radius * 1.1) {
       return true;
     }
     return false;
@@ -184,11 +179,13 @@ class GolfBall {
     if (this.position.z < -880 + this.radius && this.position.x < -100 && this.position.x > -500) {
       this.velocity.z *= -1;
       this.position.z = -880 + this.radius;
+      this.velocity.mult(0.98);
       reflect = true;
     } 
-    else if (this.position.z > -720 - this.radius && this.position.z < -600 && this.position.x < -100 && this.position.x > -300) {
+    else if (this.position.z > -720 - this.radius && this.position.z < -600 && this.position.x < -100 && this.position.x > -300 && this.position.y > -118) {
       this.velocity.z *= -1;
       this.position.z = -720 - this.radius;
+      this.velocity.mult(0.98);
       reflect = true;
     }
 
