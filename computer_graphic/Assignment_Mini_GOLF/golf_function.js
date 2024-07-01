@@ -7,6 +7,7 @@ let straight, corner1, ramp, corner2, side, open, hole_square, gap;
 let cameras = [];
 let star_page = true;
 let game_page = false;
+let game_play = false;
 let ballIsStatic = true;
 let lineVisible = false;
 let startPos, endPos, direction, force;
@@ -68,7 +69,7 @@ function setup() {
   grounds.push(new Ground(-375, -118, -150, 3, 0));
   grounds.push(new Ground(-325, -118, -150, 3, 0));
 
-  displayHome(); // Call displayHome initially to show the home screen
+  displayHome();
 }
 
 function preload() {
@@ -252,20 +253,28 @@ function displaySetting() {
   canvas.mousePressed(() => settingsContainer.remove());
 }
 
-
 function startGame() {
   home.remove();
   start_button.remove();
   setting_button.remove();
   star_page = false;
   game_page = true;
+
+  let gamePlay = createElement('img');
+  gamePlay.attribute('src', '../Assignment_Mini_GOLF/model/game_play.jpg');
+  gamePlay.position(windowWidth / 2 - 300, windowHeight / 2 - 200); // Adjust the position
+  gamePlay.size(600, 400); // Adjust the size
+  gamePlay.mouseClicked(() => {
+    gamePlay.remove(); // Remove the image on click
+    game_play = true; // Set the flag to true after starting the game
+  });
 }
 
 function draw() {
   background(225);
   ambientLight(128, 128, 128);
   directionalLight(128, 128, 128, 1, 5, 1);
-  
+
   if (star_page) {
     cameras[1].updateStart();
     cameras[1].display();
@@ -296,14 +305,21 @@ function draw() {
     }
 
     if (golf_ball.isBallInHole() === true) {
-      game_page = false;
-      star_page = true;
-      showGround = true; 
-      golf_ball.reset();
-      displayHome(); 
+      resetGame(); // Call the resetGame function when the ball is in the hole
     }
   }
 }
+
+function resetGame() {
+  star_page = true;
+  game_page = false;
+  game_play = false; // Reset game_play flag to allow restarting
+  showGround = true; 
+  golf_ball.reset();
+  displayHome(); 
+  loop();
+}
+
 
 function drawGround(){
   modelInstances.forEach(modelInstance => {
