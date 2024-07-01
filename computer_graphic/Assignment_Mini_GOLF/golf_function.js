@@ -22,7 +22,11 @@ var colorFill = [
   '#B0C5A4',
   '#C7C8CC',
   '#EEEDEB',
-  '#FDFFAB'
+  '#FDFFAB',
+  '#667BC6',
+  '#FDFFD2',
+  '#FFB4C2',
+  '#DA7297'
 ];
 let constrainedDistance = 0; 
 let showGround = true; 
@@ -260,14 +264,16 @@ function startGame() {
   star_page = false;
   game_page = true;
 
-  let gamePlay = createElement('img');
-  gamePlay.attribute('src', '../Assignment_Mini_GOLF/model/game_play.jpg');
-  gamePlay.position(windowWidth / 2 - 300, windowHeight / 2 - 200); // Adjust the position
-  gamePlay.size(600, 400); // Adjust the size
-  gamePlay.mouseClicked(() => {
-    gamePlay.remove(); // Remove the image on click
-    game_play = true; // Set the flag to true after starting the game
-  });
+    let gamePlay = createElement('img');
+    if(!game_page){
+      gamePlay.attribute('src', '../Assignment_Mini_GOLF/model/game_play.jpg');
+      gamePlay.position(windowWidth / 2 - 300, windowHeight / 2 - 200); // Adjust the position
+      gamePlay.size(600, 400); // Adjust the size
+      gamePlay.mouseClicked(() => {
+        gamePlay.remove(); // Remove the image on click
+        game_play = false; // Set the flag to true after starting the game
+      });
+    }
 }
 
 function draw() {
@@ -312,12 +318,10 @@ function draw() {
 
 function resetGame() {
   star_page = true;
-  game_page = false;
-  game_play = false; // Reset game_play flag to allow restarting
+  game_page = false; // Reset game_play flag to allow restarting
   showGround = true; 
   golf_ball.reset();
   displayHome(); 
-  loop();
 }
 
 
@@ -380,7 +384,7 @@ function mouseReleased() {
 function screenToWorld(screenX, screenY) {
   let x = screenX - width / 2;
   let y = screenY - height / 2;
-  return createVector(x, 0, y); // Adjust the y-coordinate based on your game logic
+  return createVector(x, 0, y);
 }
 
 function drawLine(golf_ball, mousePosition) {
