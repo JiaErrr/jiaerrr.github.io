@@ -32,7 +32,7 @@ let constrainedDistance = 0;
 let showGround = true; 
 
 function setup() {
-  
+  getAudioContext().resume();
   let canvas = createCanvas(1280, 720, WEBGL);
   canvas.center();
   canvas.position(windowWidth / 2 - width / 2, 150); // Correct the canvas position
@@ -88,8 +88,9 @@ function preload() {
   gap = loadModel('../Assignment_Mini_GOLF/model/gap.obj', true);
   speed = loadImage('../Assignment_Mini_GOLF/model/speed_up.png');
   gamePlay = loadImage('../Assignment_Mini_GOLF/model/game_play.jpg');
+
+  soundFormats('ogg', 'mp3');
   menu = loadSound('../Assignment_Mini_GOLF/model/menu.mp3');
-  
 }
 
 function displayHome() {
@@ -277,6 +278,7 @@ function startGame() {
 }
 
 function draw() {
+  getAudioContext().resume();
   background(225);
   ambientLight(128, 128, 128);
   directionalLight(128, 128, 128, 1, 5, 1);
