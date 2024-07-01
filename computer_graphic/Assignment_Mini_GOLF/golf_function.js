@@ -7,7 +7,7 @@ let straight, corner1, ramp, corner2, side, open, hole_square, gap;
 let cameras = [];
 let star_page = true;
 let game_page = false;
-let game_play = false;
+let game_play = true;
 let ballIsStatic = true;
 let lineVisible = false;
 let startPos, endPos, direction, force;
@@ -41,6 +41,11 @@ function setup() {
   rectMode(CENTER);
 
   golf_ball = new GolfBall(0, -150, 0, 5);
+
+  if (localStorage.getItem('ball_color')) {
+    golf_ball.fill_color = localStorage.getItem('ball_color');
+  }
+
   slope = new Slope(createVector(-100, 2, -700), createVector(-300, -118, -900), 60);
   cameras.push(new Camera(0, -200, 400, 0, 0, 0, 0, 1, 0));
   cameras.push(new Camera(500, -400, 500, 0, 0, 0, 0, 1, 0));
@@ -158,8 +163,10 @@ function displayHome() {
 
 function displaySetting() {
   // Remove any existing settings container
-  if (settingsContainer) {
-    settingsContainer.remove();
+  if (!settingsContainer) {
+    createSettingsContainer();
+  } else {
+    settingsContainer.show(); // Show the container if it was hidden
   }
 
   // Create settings container
@@ -258,23 +265,119 @@ function displaySetting() {
   canvas.mousePressed(() => settingsContainer.remove());
 }
 
+
+function createSettingsContainer() {
+  // Create settings container
+  settingsContainer = createDiv();
+  settingsContainer.id('settingsContainer');
+  settingsContainer.position(windowWidth / 2 - 262, 150);
+  settingsContainer.size(500, 400);
+  settingsContainer.style('background-color', '#FCE8D0');
+  settingsContainer.style('border', '2px solid #012721');
+  settingsContainer.style('border-radius', '20px');
+  settingsContainer.style('padding', '20px');
+  
+  // Sound volume control
+  let soundLabel = createP('Sound:');
+  soundLabel.parent(settingsContainer);
+  soundLabel.style('font-family', 'Rockwell');
+  soundLabel.style('font-size', '20px');
+  soundLabel.style('color', '#012721');
+  console.log('Sound label created');
+
+  let volumeSlider = createSlider(0, 1, currentVolume, 0.01); 
+  volumeSlider.parent(settingsContainer);
+  volumeSlider.style('-webkit-appearance', 'none');
+  volumeSlider.style('appearance', 'none');
+  volumeSlider.style('-width', '100%');
+  volumeSlider.style('background', '#012721');
+  volumeSlider.style('border-radius', '5px');
+  volumeSlider.style('cursor', 'pointer');
+  volumeSlider.style('outline', 'none');
+  volumeSlider.style('opacity', '0.7');
+  volumeSlider.style('-webkit-transition', '.2s');
+  volumeSlider.style('transition', 'opacity . 2s');
+  volumeSlider.input(() => {
+    currentVolume = volumeSlider.value(); 
+    menu.setVolume(currentVolume);
+  });
+
+  // Ball color selection
+  let colorLabel = createP('Ball Color:');
+  colorLabel.parent(settingsContainer);
+  colorLabel.style('font-family', 'Rockwell');
+  colorLabel.style('font-size', '20px');
+  colorLabel.style('color', '#012721');
+  console.log('Color label created');
+
+  colorFill.forEach((color) => {
+    let colorButton = createButton('');
+    colorButton.parent(settingsContainer);
+    colorButton.style('background-color', color);
+    colorButton.style('border', 'none');
+    colorButton.style('border-radius', '50%');
+    colorButton.style('width', '30px');
+    colorButton.style('height', '30px');
+    colorButton.style('margin', '5px');
+    colorButton.style('cursor', 'pointer');
+    if (golf_ball.fill_color === color) {
+      colorButton.style('border', '5px solid #012721');
+    }
+    colorButton.mousePressed(() => {
+      golf_ball.fill_color = color;
+      localStorage.setItem('ball_color', color);
+      // console.log('Selected ball color:', color);
+      document.querySelectorAll('button').forEach(btn => btn.style.border = 'none'); // Remove border from all buttons
+      colorButton.style('border', '5px solid #012721');
+    });
+  });
+
+  // Save button
+  let saveButton = createButton('SAVE');
+  saveButton.parent(settingsContainer);
+  saveButton.position(200, 350); // Adjust position as needed
+  saveButton.size(220, 50);
+  saveButton.style('color', '#FCE8D0');
+  saveButton.style('width', '120px');
+  saveButton.style('background-color', '#012721');
+  saveButton.style('border', 'none');
+  saveButton.style('border-radius', '100px');
+  saveButton.style('font-family', 'Rockwell');
+  saveButton.style('font-size', '20px');
+  saveButton.style('cursor', 'pointer');
+  saveButton.mousePressed(() => {
+    settingsContainer.remove(); // Remove settings container
+  });
+  saveButton.mouseOut(() => {
+    saveButton.style('color', '#FCE8D0');
+    saveButton.style('background-color', '#012721');
+  });
+  saveButton.mouseOver(() => {
+    saveButton.style('color', '#012721');
+    saveButton.style('background-color', '#FCE8D0');
+    saveButton.style('border', '3px solid #012721');
+  });
+
+  settingsContainer.mousePressed((e) => e.stopPropagation());
+  canvas.mousePressed(() => settingsContainer.remove());
+}
+
 function startGame() {
   home.remove();
   start_button.remove();
   setting_button.remove();
   star_page = false;
   game_page = true;
-
+  if(game_play){
     let gamePlay = createElement('img');
-    if(!game_page){
-      gamePlay.attribute('src', '../Assignment_Mini_GOLF/model/game_play.jpg');
-      gamePlay.position(windowWidth / 2 - 300, windowHeight / 2 - 200); // Adjust the position
-      gamePlay.size(600, 400); // Adjust the size
-      gamePlay.mouseClicked(() => {
-        gamePlay.remove(); // Remove the image on click
-        game_play = false; // Set the flag to true after starting the game
-      });
-    }
+    gamePlay.attribute('src', '../Assignment_Mini_GOLF/model/game_play.jpg');
+    gamePlay.position(windowWidth / 2 - 300, windowHeight / 2 - 200); // Adjust the position
+    gamePlay.size(600, 400); // Adjust the size
+    gamePlay.mouseClicked(() => {
+      gamePlay.remove(); // Remove the image on click
+      game_play = false; // Set the flag to true after starting the game
+    });
+  }
 }
 
 function draw() {
@@ -318,13 +421,40 @@ function draw() {
   }
 }
 
+// Define a function to reset all variables and objects
 function resetGame() {
+  // Remove elements and buttons if they exist
+  if (home) home.remove();
+  if (start_button) start_button.remove();
+  if (setting_button) setting_button.remove();
+
+  // Reset variables and objects
   star_page = true;
-  game_page = false; // Reset game_play flag to allow restarting
-  showGround = true; 
-  golf_ball.reset();
-  displayHome(); 
+  game_page = false;
+  game_play = false;
+  ballIsStatic = true;
+  lineVisible = false;
+  startPos = null;
+  endPos = null;
+  direction = null;
+  force = null;
+  constrainedDistance = 0;
+  showGround = true;
+  golf_ball.position.set(0, -150, 0); 
+
+  // Clear arrays
+  modelInstances = [];
+  grounds = [];
+  cameras = [];
+
+  setup();
+
+  // Hide settings container instead of removing it
+  if (settingsContainer) {
+    settingsContainer.hide();
+  }
 }
+
 
 
 function drawGround(){
@@ -363,7 +493,7 @@ function mouseDragged() {
     if (startPos && endPos) {
       let distance = p5.Vector.dist(startPos, endPos);
       force = constrain(distance * forceModifier, 0, maxForce);
-      constrainedDistance = constrain(distance * forceModifier, 0, maxForce * 2); // Update constrainedDistance
+      constrainedDistance = constrain(distance * forceModifier, 0, maxForce * 2); 
     }
   }
 }
