@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/login_signup.css">
+  <script type="text/javascript" src="../js/login_signup.js" defer></script>
+  <title>Login & Sign Up Page</title>
+</head>
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signup-login">
+        <!-- Login Container -->
+        <div class="login">
+          <h1>Login</h1>
+          <p id="error-message"></p>
+          <form id="form" class="login-form">
+            <!-- Email -->
+            <div>
+              <label for="input-email">
+                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/aycieyht.json"
+                    trigger="hover"
+                    stroke="bold"
+                    id="email-icon">
+                </lord-icon>
+              </label>
+              <input type="email" name="email" id="input-email" placeholder="Email">
+            </div>
+            <!-- Password -->
+            <div>
+              <label for="input-password">
+                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/khheayfj.json"
+                    trigger="hover"
+                    stroke="bold"
+                    id="password-icon">
+                </lord-icon>
+              </label>
+              <input type="password" name="password" id="input-password" placeholder="Password">
+            </div>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+        <!-- Sign Up Container -->
+        <div class="signup">
+          <h1>Sign Up</h1>
+          <p id="error-message"></p>
+          <form id="from" class="sign-up-form">
+              <!-- Username -->
+              <div>
+                <label for="input-username"> 
+                  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/bgebyztw.json"
+                      trigger="hover"
+                      state="hover-looking-around"
+                      stroke="bold"
+                      id="user-icon">
+                  </lord-icon>
+                </label>
+                <input type="text" name="username" id="input-username" placeholder="Username">
+              </div>
+              <!-- Email -->
+              <div>
+                <label for="input-email">
+                  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/aycieyht.json"
+                      trigger="hover"
+                      stroke="bold"
+                      id="email-icon">
+                  </lord-icon>
+                </label>
+                <input type="email" name="email" id="input-email" placeholder="name@example.com">
+              </div>
+              <!-- Password -->
+              <div>
+                <label for="input-password">
+                  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/khheayfj.json"
+                      trigger="hover"
+                      stroke="bold"
+                      id="password-icon">
+                  </lord-icon>
+                </label>
+                <input type="password" name="password" id="input-password" placeholder="Password">
+              </div>
+              <!-- Confirm Password -->
+              <div>
+                <label for="input-confirm-password">
+                  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/khheayfj.json"
+                      trigger="hover"
+                      stroke="bold"
+                      id="confirm-password-icon">
+                  </lord-icon>                
+                </label>
+                <input type="password" name="password" id="input-confirm-password" placeholder="Confirm password">
+              </div>
+              <button type="submit">Signup</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="panel-container">
+      <div class="left-panel">
+        <div class="content">
+          <h3>Haven't have an account?<br>Please Sign Up</h3>
+          <button class="btn-transparent" id="sign-up-btn">
+            Sign Up
+          </button>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="content">
+          <h3>Already have an account?<br>Come Login</h3>
+          <button class="btn-transparent" id="login-btn">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
