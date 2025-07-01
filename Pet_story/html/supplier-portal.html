@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Portal - PET STORY</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/supplier-portal.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>★ SUPPLIER PORTAL ★ MANAGE YOUR PRODUCTS ★ TRACK ORDERS ★ SUPPLIER PORTAL ★ MANAGE YOUR PRODUCTS ★ TRACK ORDERS ★</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="supplier-main">
+        <!-- Navigation Header -->
+        <nav class="supplier-nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <h1>PET STORY</h1>
+                    <span class="portal-label">Supplier Portal</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="user-info">
+                    <span class="welcome-text">Welcome, Supplier</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <ul class="menu-list">
+                    <li class="menu-item active" data-section="dashboard">
+                        <span class="menu-icon">📊</span>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="menu-item" data-section="products">
+                        <span class="menu-icon">📦</span>
+                        <span>Products</span>
+                    </li>
+                    <li class="menu-item" data-section="orders">
+                        <span class="menu-icon">📋</span>
+                        <span>Orders</span>
+                    </li>
+                    <li class="menu-item" data-section="inventory">
+                        <span class="menu-icon">📈</span>
+                        <span>Inventory</span>
+                    </li>
+                    <li class="menu-item" data-section="reports">
+                        <span class="menu-icon">📊</span>
+                        <span>Reports</span>
+                    </li>
+                    <li class="menu-item" data-section="settings">
+                        <span class="menu-icon">⚙️</span>
+                        <span>Settings</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <h2>Dashboard Overview</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📦</div>
+                            <div class="stat-info">
+                                <h3>Total Products</h3>
+                                <p class="stat-number">156</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📋</div>
+                            <div class="stat-info">
+                                <h3>Pending Orders</h3>
+                                <p class="stat-number">23</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-info">
+                                <h3>Monthly Revenue</h3>
+                                <p class="stat-number">$12,450</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-info">
+                                <h3>Average Rating</h3>
+                                <p class="stat-number">4.8</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-activity">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <span class="activity-time">2 hours ago</span>
+                                <span class="activity-text">New order #12345 received</span>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-time">5 hours ago</span>
+                                <span class="activity-text">Product "Premium Dog Food" updated</span>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-time">1 day ago</span>
+                                <span class="activity-text">Inventory restocked for "Cat Toys"</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Products Section -->
+                <section id="products" class="content-section">
+                    <div class="section-header">
+                        <h2>Product Management</h2>
+                        <button class="add-btn">+ Add New Product</button>
+                    </div>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image">🐕</div>
+                            <h4>Premium Dog Food</h4>
+                            <p class="product-price">$29.99</p>
+                            <p class="product-stock">Stock: 45</p>
+                            <div class="product-actions">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">🐱</div>
+                            <h4>Cat Treats</h4>
+                            <p class="product-price">$12.99</p>
+                            <p class="product-stock">Stock: 78</p>
+                            <div class="product-actions">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">🎾</div>
+                            <h4>Pet Toys</h4>
+                            <p class="product-price">$15.99</p>
+                            <p class="product-stock">Stock: 32</p>
+                            <div class="product-actions">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Orders Section -->
+                <section id="orders" class="content-section">
+                    <h2>Order Management</h2>
+                    <div class="orders-table">
+                        <div class="table-header">
+                            <span>Order ID</span>
+                            <span>Customer</span>
+                            <span>Product</span>
+                            <span>Quantity</span>
+                            <span>Status</span>
+                            <span>Actions</span>
+                        </div>
+                        <div class="table-row">
+                            <span>#12345</span>
+                            <span>John Doe</span>
+                            <span>Premium Dog Food</span>
+                            <span>2</span>
+                            <span class="status pending">Pending</span>
+                            <span><button class="process-btn">Process</button></span>
+                        </div>
+                        <div class="table-row">
+                            <span>#12346</span>
+                            <span>Jane Smith</span>
+                            <span>Cat Treats</span>
+                            <span>5</span>
+                            <span class="status shipped">Shipped</span>
+                            <span><button class="track-btn">Track</button></span>
+                        </div>
+                        <div class="table-row">
+                            <span>#12347</span>
+                            <span>Mike Johnson</span>
+                            <span>Pet Toys</span>
+                            <span>1</span>
+                            <span class="status delivered">Delivered</span>
+                            <span><button class="view-btn">View</button></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Other sections (placeholder) -->
+                <section id="inventory" class="content-section">
+                    <h2>Inventory Management</h2>
+                    <p>Inventory management features coming soon...</p>
+                </section>
+
+                <section id="reports" class="content-section">
+                    <h2>Reports & Analytics</h2>
+                    <p>Reports and analytics features coming soon...</p>
+                </section>
+
+                <section id="settings" class="content-section">
+                    <h2>Account Settings</h2>
+                    <p>Account settings features coming soon...</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="supplier-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 PET STORY Supplier Portal. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Support</a>
+                <a href="#">Documentation</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/supplier-portal.js"></script>
+</body>
+</html>

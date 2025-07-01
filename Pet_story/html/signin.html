@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Pet Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signin-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            min-height: 500px;
+        }
+
+        .signin-left {
+            flex: 1;
+            background: #000;
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .signin-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23333"/><circle cx="80" cy="40" r="1.5" fill="%23333"/><circle cx="40" cy="80" r="1" fill="%23333"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .signin-left h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signin-left p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signin-right {
+            flex: 1;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .signin-form h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .signin-btn {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .signin-btn:hover {
+            background: #333;
+        }
+
+        .demo-accounts {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .demo-accounts h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .demo-account {
+            background: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border-left: 3px solid #000;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .demo-account:hover {
+            transform: translateX(5px);
+        }
+
+        .demo-account:last-child {
+            margin-bottom: 0;
+        }
+
+        .demo-account strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .demo-account span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .success-message {
+            color: #27ae60;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .signin-container {
+                flex-direction: column;
+                margin: 20px;
+            }
+
+            .signin-left {
+                padding: 40px 30px;
+                text-align: center;
+            }
+
+            .signin-left h1 {
+                font-size: 2rem;
+            }
+
+            .signin-right {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    
+    <div class="signin-container">
+        <div class="signin-left">
+            <h1>Welcome Back</h1>
+            <p>Access your HR Portal and manage your pet care business efficiently. Sign in with your credentials to continue.</p>
+        </div>
+        
+        <div class="signin-right">
+            <form class="signin-form" id="signinForm">
+                <h2>Sign In</h2>
+                
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="signin-btn">Sign In</button>
+                
+                <div class="error-message" id="errorMessage"></div>
+                <div class="success-message" id="successMessage"></div>
+            </form>
+            
+            <div class="demo-accounts">
+                <h3>Demo Accounts (Click to auto-fill)</h3>
+                <div class="demo-account" onclick="fillCredentials('admin123', 'admin123')">
+                    <strong>HR Administrator</strong>
+                    <span>Username: admin123 | Password: admin123</span>
+                </div>
+                <div class="demo-account" onclick="fillCredentials('chan.jiaqi', 'password123')">
+                    <strong>Chan Jia Qi</strong>
+                    <span>Username: chan.jiaqi | Password: password123</span>
+                </div>
+                <div class="demo-account" onclick="fillCredentials('chiang.junxiang', 'password123')">
+                    <strong>Chiang Jun Xiang</strong>
+                    <span>Username: chiang.junxiang | Password: password123</span>
+                </div>
+                <div class="demo-account" onclick="fillCredentials('lee.huixin', 'password123')">
+                    <strong>Lee Hui Xin</strong>
+                    <span>Username: lee.huixin | Password: password123</span>
+                </div>
+                <div class="demo-account" onclick="fillCredentials('andeline.lim', 'password123')">
+                    <strong>Andeline Lim</strong>
+                    <span>Username: andeline.lim | Password: password123</span>
+                </div>
+                <div class="demo-account" onclick="fillCredentials('cheong.jiaer', 'password123')">
+                    <strong>Cheong Jia Er</strong>
+                    <span>Username: cheong.jiaer | Password: password123</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // <!--!!Important --> Built-in accounts for authentication
+        const accounts = {
+            'admin123': {
+                password: 'admin123',
+                role: 'hr_admin',
+                name: 'HR Administrator'
+            },
+            'user124': {
+                password: 'user123',
+                role: 'employee',
+                name: 'Employee'
+            },
+            'chan.jiaqi': {
+                password: 'password123',
+                role: 'employee',
+                name: 'Chan Jia Qi',
+                employeeId: 1
+            },
+            'chiang.junxiang': {
+                password: 'password123',
+                role: 'employee',
+                name: 'Chiang Jun Xiang',
+                employeeId: 2
+            },
+            'lee.huixin': {
+                password: 'password123',
+                role: 'employee',
+                name: 'Lee Hui Xin',
+                employeeId: 3
+            },
+            'andeline.lim': {
+                password: 'password123',
+                role: 'employee',
+                name: 'Andeline Lim',
+                employeeId: 4
+            },
+            'cheong.jiaer': {
+                password: 'password123',
+                role: 'employee',
+                name: 'Cheong Jia Er',
+                employeeId: 5
+             }
+         };
+
+        /**
+         * Fill demo credentials into form fields
+         * @param {string} username - The username to fill
+         * @param {string} password - The password to fill
+         */
+        function fillCredentials(username, password) {
+            document.getElementById('username').value = username;
+            document.getElementById('password').value = password;
+            hideMessages();
+        }
+
+        /**
+         * Hide all message elements
+         */
+        function hideMessages() {
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        /**
+         * Show error message
+         * @param {string} message - Error message to display
+         */
+        function showError(message) {
+            hideMessages();
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+
+        /**
+         * Show success message
+         * @param {string} message - Success message to display
+         */
+        function showSuccess(message) {
+            hideMessages();
+            const successElement = document.getElementById('successMessage');
+            successElement.textContent = message;
+            successElement.style.display = 'block';
+        }
+
+        /**
+         * Authenticate user credentials
+         * @param {string} username - Username to authenticate
+         * @param {string} password - Password to authenticate
+         * @returns {Object|null} User object if authenticated, null otherwise
+         */
+        function authenticateUser(username, password) {
+            const user = accounts[username];
+            if (user && user.password === password) {
+                const userObj = {
+                    username: username,
+                    role: user.role,
+                    name: user.name
+                };
+                // Add employeeId for employee accounts
+                if (user.employeeId) {
+                    userObj.employeeId = user.employeeId;
+                }
+                return userObj;
+            }
+            return null;
+        }
+
+        /**
+         * Redirect to HR Portal after successful authentication
+         * @param {Object} user - Authenticated user object
+         */
+        function redirectToHRPortal(user) {
+            // Store user session data
+            sessionStorage.setItem('currentUser', JSON.stringify(user));
+            
+            // Show success message and redirect
+            showSuccess(`Welcome ${user.name}! Redirecting to HR Portal...`);
+            
+            setTimeout(() => {
+                window.location.href = 'hr-portal.html';
+            }, 1500);
+        }
+
+        // <!--!!Important --> Form submission handler
+        document.getElementById('signinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                showError('Please enter both username and password.');
+                return;
+            }
+            
+            const user = authenticateUser(username, password);
+            
+            if (user) {
+                redirectToHRPortal(user);
+            } else {
+                showError('Invalid username or password. Please try again.');
+            }
+        });
+
+        // Clear messages when user starts typing
+        document.getElementById('username').addEventListener('input', hideMessages);
+        document.getElementById('password').addEventListener('input', hideMessages);
+    </script>
+</body>
+</html>

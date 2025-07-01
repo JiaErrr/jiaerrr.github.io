@@ -1,0 +1,451 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Chan Jia Qi",
+      "position": "Chief Executive Officer (CEO)",
+      "status": "active",
+      "email": "jiaqi.chan@petstory.com",
+      "phone": "+60123456789",
+      "leaveRequests": [
+        {
+          "type": "Annual Leave",
+          "startDate": "2024-03-15",
+          "endDate": "2024-03-17",
+          "status": "pending",
+          "reason": "Strategic planning retreat"
+        }
+      ],
+      "performance": {
+        "attendance": "98%",
+        "punctuality": "99%",
+        "tasksCompleted": 65,
+        "customerRating": 4.9
+      },
+      "payroll": {
+        "baseSalary": 5000.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 300.00,
+          "meal": 200.00,
+          "housing": 800.00,
+          "leadership": 1500.00
+        },
+        "deductions": {
+          "epf": 550.00,
+          "socso": 10.25,
+          "eis": 8.00,
+          "tax": 500.00
+        },
+        "overtimeRate": 30.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2023-01-01",
+            "baseSalary": 4500.00,
+            "reason": "Initial salary",
+            "approvedBy": "Board of Directors"
+          },
+          {
+            "effectiveDate": "2024-01-01",
+            "baseSalary": 5000.00,
+            "reason": "Annual increment",
+            "approvedBy": "Board of Directors"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 7800.00,
+          "totalDeductions": 1068.25,
+          "netSalary": 6731.75,
+          "overtimeHours": 0.0,
+          "overtimePay": 0.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 22,
+            "lateDays": 0,
+            "earlyLeaveDays": 0,
+            "absentDays": 0,
+            "totalWorkHours": 176.0
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-02",
+            "clockIn": "08:55",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Chiang Jun Xiang",
+      "position": "Finance Manager",
+      "status": "active",
+      "email": "junxiang.chiang@petstory.com",
+      "phone": "+60123456790",
+      "leaveRequests": [
+        {
+          "type": "Medical Leave",
+          "startDate": "2024-02-20",
+          "endDate": "2024-02-22",
+          "status": "approved",
+          "reason": "Health checkup"
+        }
+      ],
+      "performance": {
+        "attendance": "96%",
+        "punctuality": "98%",
+        "tasksCompleted": 58,
+        "customerRating": 4.7
+      },
+      "payroll": {
+        "baseSalary": 3000.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 200.00,
+          "meal": 150.00,
+          "housing": 400.00,
+          "management": 500.00
+        },
+        "deductions": {
+          "epf": 330.00,
+          "socso": 6.15,
+          "eis": 4.80,
+          "tax": 200.00
+        },
+        "overtimeRate": 20.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2023-01-01",
+            "baseSalary": 2800.00,
+            "reason": "Initial salary",
+            "approvedBy": "HR Manager"
+          },
+          {
+            "effectiveDate": "2024-01-01",
+            "baseSalary": 3000.00,
+            "reason": "Performance increment",
+            "approvedBy": "CEO"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 4250.00,
+          "totalDeductions": 540.95,
+          "netSalary": 3709.05,
+          "overtimeHours": 0.0,
+          "overtimePay": 0.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 21,
+            "lateDays": 1,
+            "earlyLeaveDays": 0,
+            "absentDays": 1,
+            "totalWorkHours": 168.0
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-02",
+            "clockIn": "09:05",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 7.92
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Lee Hui Xin",
+      "position": "Sales Manager",
+      "status": "active",
+      "email": "huixin.lee@petstory.com",
+      "phone": "+60123456791",
+      "leaveRequests": [],
+      "performance": {
+        "attendance": "97%",
+        "punctuality": "96%",
+        "tasksCompleted": 62,
+        "customerRating": 4.8
+      },
+      "payroll": {
+        "baseSalary": 3000.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 200.00,
+          "meal": 150.00,
+          "housing": 400.00,
+          "sales_commission": 600.00
+        },
+        "deductions": {
+          "epf": 330.00,
+          "socso": 6.15,
+          "eis": 4.80,
+          "tax": 220.00
+        },
+        "overtimeRate": 20.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2023-01-01",
+            "baseSalary": 2700.00,
+            "reason": "Initial salary",
+            "approvedBy": "HR Manager"
+          },
+          {
+            "effectiveDate": "2024-01-01",
+            "baseSalary": 3000.00,
+            "reason": "Sales target achievement",
+            "approvedBy": "CEO"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 4350.00,
+          "totalDeductions": 560.95,
+          "netSalary": 3789.05,
+          "overtimeHours": 0.0,
+          "overtimePay": 0.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 21,
+            "lateDays": 2,
+            "earlyLeaveDays": 0,
+            "absentDays": 1,
+            "totalWorkHours": 168.0
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-02",
+            "clockIn": "09:10",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "late",
+            "workHours": 7.83
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Andeline Lim",
+      "position": "Operations Manager",
+      "status": "active",
+      "email": "andeline.lim@petstory.com",
+      "phone": "+60123456792",
+      "leaveRequests": [
+        {
+          "type": "Annual Leave",
+          "startDate": "2024-04-10",
+          "endDate": "2024-04-12",
+          "status": "pending",
+          "reason": "Family vacation"
+        }
+      ],
+      "performance": {
+        "attendance": "99%",
+        "punctuality": "99%",
+        "tasksCompleted": 70,
+        "customerRating": 4.9
+      },
+      "payroll": {
+        "baseSalary": 3000.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 200.00,
+          "meal": 150.00,
+          "housing": 400.00,
+          "operations": 450.00
+        },
+        "deductions": {
+          "epf": 330.00,
+          "socso": 6.15,
+          "eis": 4.80,
+          "tax": 210.00
+        },
+        "overtimeRate": 20.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2023-01-01",
+            "baseSalary": 2800.00,
+            "reason": "Initial salary",
+            "approvedBy": "HR Manager"
+          },
+          {
+            "effectiveDate": "2024-01-01",
+            "baseSalary": 3000.00,
+            "reason": "Operational excellence",
+            "approvedBy": "CEO"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 4200.00,
+          "totalDeductions": 550.95,
+          "netSalary": 3649.05,
+          "overtimeHours": 0.0,
+          "overtimePay": 0.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 22,
+            "lateDays": 0,
+            "earlyLeaveDays": 0,
+            "absentDays": 0,
+            "totalWorkHours": 176.0
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-02",
+            "clockIn": "08:58",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.03
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "Cheong Jia Er",
+      "position": "Human Resource Manager",
+      "status": "active",
+      "email": "jiaer.cheong@petstory.com",
+      "phone": "+60123456793",
+      "leaveRequests": [],
+      "performance": {
+        "attendance": "98%",
+        "punctuality": "97%",
+        "tasksCompleted": 55,
+        "customerRating": 4.6
+      },
+      "payroll": {
+        "baseSalary": 3000.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 200.00,
+          "meal": 150.00,
+          "housing": 400.00,
+          "hr_allowance": 400.00
+        },
+        "deductions": {
+          "epf": 330.00,
+          "socso": 6.15,
+          "eis": 4.80,
+          "tax": 200.00
+        },
+        "overtimeRate": 20.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2023-01-01",
+            "baseSalary": 2800.00,
+            "reason": "Initial salary",
+            "approvedBy": "CEO"
+          },
+          {
+            "effectiveDate": "2024-01-01",
+            "baseSalary": 3000.00,
+            "reason": "HR excellence",
+            "approvedBy": "CEO"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 4150.00,
+          "totalDeductions": 540.95,
+          "netSalary": 3609.05,
+          "overtimeHours": 0.0,
+          "overtimePay": 0.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 21,
+            "lateDays": 1,
+            "earlyLeaveDays": 1,
+            "absentDays": 1,
+            "totalWorkHours": 168.0
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-02",
+            "clockIn": "09:05",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "17:50",
+            "status": "late",
+            "workHours": 7.75
+          }
+        ]
+      }
+    }
+  ],
+  "chatMessages": {},
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "name": "HR Administrator",
+      "role": "hr_admin"
+    },
+    {
+      "id": 2,
+      "username": "employee",
+      "password": "emp123",
+      "name": "Employee User",
+      "role": "employee"
+    }
+  ],
+  "systemSettings": {
+    "companyName": "Pet Story",
+    "workingHours": {
+      "start": "09:00",
+      "end": "18:00",
+      "lunchStart": "12:00",
+      "lunchEnd": "13:00"
+    },
+    "payrollSettings": {
+      "currency": "MYR",
+      "paymentDay": 25,
+      "epfRate": 0.11,
+      "socsoRate": 0.005,
+      "eisRate": 0.002
+    }
+  }
+}

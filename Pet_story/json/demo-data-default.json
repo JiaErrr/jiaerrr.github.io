@@ -1,0 +1,726 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Chan Jia Qi",
+      "position": "Chief Executive Officer (CEO)",
+      "status": "active",
+      "email": "jiaqi.chan@petstory.com",
+      "phone": "+1234567890",
+      "leaveRequests": [
+        {
+          "type": "Annual Leave",
+          "startDate": "2024-03-15",
+          "endDate": "2024-03-17",
+          "status": "pending",
+          "reason": "Strategic planning retreat"
+        }
+      ],
+      "performance": {
+        "attendance": "98%",
+        "punctuality": "99%",
+        "tasksCompleted": 65,
+        "customerRating": 4.9
+      },
+      "payroll": {
+        "baseSalary": 12000.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 500.00,
+          "meal": 300.00,
+          "housing": 1000.00,
+          "leadership": 2000.00
+        },
+        "deductions": {
+          "epf": 1320.00,
+          "socso": 24.60,
+          "eis": 19.20,
+          "tax": 1200.00
+        },
+        "overtimeRate": 50.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2023-01-01",
+            "baseSalary": 10000.00,
+            "reason": "Initial salary",
+            "approvedBy": "Board of Directors"
+          },
+          {
+            "effectiveDate": "2023-07-01",
+            "baseSalary": 12000.00,
+            "reason": "Performance-based increment",
+            "approvedBy": "Board of Directors"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 15800.00,
+          "totalDeductions": 2563.80,
+          "netSalary": 13236.20,
+          "overtimeHours": 8.0,
+          "overtimePay": 400.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 21,
+            "lateDays": 1,
+            "earlyLeaveDays": 0,
+            "absentDays": 1,
+            "totalWorkHours": 168.0
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-02",
+            "clockIn": "08:55",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:05",
+            "status": "normal",
+            "workHours": 8.17
+          },
+          {
+            "date": "2024-01-03",
+            "clockIn": "09:10",
+            "lunchOut": "12:05",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "late",
+            "workHours": 7.75
+          },
+          {
+            "date": "2024-01-04",
+            "clockIn": "08:58",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "17:45",
+            "status": "early_leave",
+            "workHours": 7.78
+          },
+          {
+            "date": "2024-01-05",
+            "clockIn": "09:02",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:10",
+            "status": "normal",
+            "workHours": 8.13
+          },
+          {
+            "date": "2024-01-08",
+            "clockIn": "09:20",
+            "lunchOut": "12:10",
+            "lunchIn": "13:05",
+            "clockOut": "18:00",
+            "status": "late",
+            "workHours": 7.42
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Chiang Jun Xiang",
+      "position": "Finance Manager",
+      "status": "active",
+      "email": "junxiang.chiang@petstory.com",
+      "phone": "+1234567891",
+      "leaveRequests": [
+        {
+          "type": "Medical Leave",
+          "startDate": "2024-02-20",
+          "endDate": "2024-02-22",
+          "status": "approved",
+          "reason": "Health checkup"
+        }
+      ],
+      "performance": {
+        "attendance": "96%",
+        "punctuality": "98%",
+        "tasksCompleted": 58,
+        "customerRating": 4.7
+      },
+      "payroll": {
+        "baseSalary": 8500.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 400.00,
+          "meal": 300.00,
+          "housing": 800.00,
+          "management": 1000.00
+        },
+        "deductions": {
+          "epf": 935.00,
+          "socso": 24.60,
+          "eis": 19.20,
+          "tax": 680.00
+        },
+        "overtimeRate": 35.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2022-06-01",
+            "baseSalary": 7500.00,
+            "reason": "Initial salary",
+            "approvedBy": "Chan Jia Qi"
+          },
+          {
+            "effectiveDate": "2023-06-01",
+            "baseSalary": 8500.00,
+            "reason": "Annual increment",
+            "approvedBy": "Chan Jia Qi"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 11000.00,
+          "totalDeductions": 1658.80,
+          "netSalary": 9341.20,
+          "overtimeHours": 0.0,
+          "overtimePay": 0.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 20,
+            "lateDays": 1,
+            "earlyLeaveDays": 0,
+            "absentDays": 2,
+            "totalWorkHours": 160.0
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-02",
+            "clockIn": "09:05",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-03",
+            "clockIn": "09:25",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "late",
+            "workHours": 7.58
+          },
+          {
+            "date": "2024-01-04",
+            "clockIn": "09:00",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-05",
+            "status": "absent",
+            "workHours": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Lee Hui Xin",
+      "position": "Sales Manager",
+      "status": "active",
+      "email": "huixin.lee@petstory.com",
+      "phone": "+1234567892",
+      "leaveRequests": [
+        {
+          "type": "Annual Leave",
+          "startDate": "2024-03-10",
+          "endDate": "2024-03-12",
+          "status": "pending",
+          "reason": "Family time"
+        }
+      ],
+      "performance": {
+        "attendance": "97%",
+        "punctuality": "99%",
+        "tasksCompleted": 62,
+        "customerRating": 4.8
+      },
+      "payroll": {
+        "baseSalary": 6500.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 350.00,
+          "meal": 300.00,
+          "housing": 600.00,
+          "technical": 500.00
+        },
+        "deductions": {
+          "epf": 715.00,
+          "socso": 24.60,
+          "eis": 19.20,
+          "tax": 390.00
+        },
+        "overtimeRate": 30.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2022-03-01",
+            "baseSalary": 5500.00,
+            "reason": "Initial salary",
+            "approvedBy": "Chiang Jun Xiang"
+          },
+          {
+            "effectiveDate": "2023-03-01",
+            "baseSalary": 6500.00,
+            "reason": "Performance increment",
+            "approvedBy": "Chiang Jun Xiang"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 8250.00,
+          "totalDeductions": 1148.80,
+          "netSalary": 7101.20,
+          "overtimeHours": 7.5,
+          "overtimePay": 225.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 21,
+            "lateDays": 1,
+            "earlyLeaveDays": 0,
+            "absentDays": 1,
+            "totalWorkHours": 167.5
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-01",
+            "clockIn": "08:55",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-02",
+            "clockIn": "09:00",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-03",
+            "clockIn": "09:15",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "late",
+            "workHours": 7.75
+          },
+          {
+            "date": "2024-01-04",
+            "clockIn": "08:58",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-05",
+            "status": "absent",
+            "workHours": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Andeline Lim",
+      "position": "Operations Manager",
+      "status": "active",
+      "email": "andeline.lim@petstory.com",
+      "phone": "+1234567893",
+      "leaveRequests": [
+        {
+          "type": "Sick Leave",
+          "startDate": "2024-02-25",
+          "endDate": "2024-02-26",
+          "status": "approved",
+          "reason": "Minor illness"
+        }
+      ],
+      "performance": {
+        "attendance": "95%",
+        "punctuality": "97%",
+        "tasksCompleted": 55,
+        "customerRating": 4.6
+      },
+      "payroll": {
+        "baseSalary": 5800.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 300.00,
+          "meal": 300.00,
+          "housing": 500.00,
+          "sales": 800.00
+        },
+        "deductions": {
+          "epf": 638.00,
+          "socso": 24.60,
+          "eis": 19.20,
+          "tax": 290.00
+        },
+        "overtimeRate": 25.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2021-09-01",
+            "baseSalary": 4800.00,
+            "reason": "Initial salary",
+            "approvedBy": "Chiang Jun Xiang"
+          },
+          {
+            "effectiveDate": "2022-09-01",
+            "baseSalary": 5300.00,
+            "reason": "Annual increment",
+            "approvedBy": "Chiang Jun Xiang"
+          },
+          {
+            "effectiveDate": "2023-09-01",
+            "baseSalary": 5800.00,
+            "reason": "Performance increment",
+            "approvedBy": "Chiang Jun Xiang"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 7700.00,
+          "totalDeductions": 971.80,
+          "netSalary": 6728.20,
+          "overtimeHours": 0.0,
+          "overtimePay": 0.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 20,
+            "lateDays": 2,
+            "earlyLeaveDays": 1,
+            "absentDays": 2,
+            "totalWorkHours": 158.5
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-01",
+            "clockIn": "09:10",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "late",
+            "workHours": 7.83
+          },
+          {
+            "date": "2024-01-02",
+            "clockIn": "09:00",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "17:45",
+            "status": "early_leave",
+            "workHours": 7.75
+          },
+          {
+            "date": "2024-01-03",
+            "clockIn": "09:20",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "late",
+            "workHours": 7.67
+          },
+          {
+            "date": "2024-01-04",
+            "clockIn": "09:00",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-05",
+            "status": "absent",
+            "workHours": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "Cheong Jia Er",
+      "position": "Human Resource Manager",
+      "status": "active",
+      "email": "jiaer.cheong@petstory.com",
+      "phone": "+1234567894",
+      "leaveRequests": [
+        {
+          "type": "Annual Leave",
+          "startDate": "2024-03-05",
+          "endDate": "2024-03-07",
+          "status": "pending",
+          "reason": "Personal development course"
+        }
+      ],
+      "performance": {
+        "attendance": "99%",
+        "punctuality": "100%",
+        "tasksCompleted": 60,
+        "customerRating": 4.9
+      },
+      "payroll": {
+        "baseSalary": 4500.00,
+        "currency": "MYR",
+        "paymentFrequency": "monthly",
+        "allowances": {
+          "transport": 250.00,
+          "meal": 300.00,
+          "housing": 400.00,
+          "performance": 300.00
+        },
+        "deductions": {
+          "epf": 495.00,
+          "socso": 24.60,
+          "eis": 19.20,
+          "tax": 135.00
+        },
+        "overtimeRate": 20.00,
+        "salaryHistory": [
+          {
+            "effectiveDate": "2023-01-15",
+            "baseSalary": 3800.00,
+            "reason": "Initial salary",
+            "approvedBy": "Lee Hui Xin"
+          },
+          {
+            "effectiveDate": "2024-01-15",
+            "baseSalary": 4500.00,
+            "reason": "Excellent performance increment",
+            "approvedBy": "Lee Hui Xin"
+          }
+        ],
+        "lastPayslip": {
+          "month": "2024-01",
+          "grossSalary": 6050.00,
+          "totalDeductions": 673.80,
+          "netSalary": 5376.20,
+          "overtimeHours": 16.0,
+          "overtimePay": 320.00
+        }
+      },
+      "attendance": {
+        "monthlyStats": {
+          "2024-01": {
+            "totalWorkDays": 22,
+            "presentDays": 22,
+            "lateDays": 0,
+            "earlyLeaveDays": 0,
+            "absentDays": 0,
+            "totalWorkHours": 176.0
+          }
+        },
+        "dailyRecords": [
+          {
+            "date": "2024-01-01",
+            "clockIn": "08:55",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-02",
+            "clockIn": "08:58",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-03",
+            "clockIn": "09:00",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-04",
+            "clockIn": "08:57",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          },
+          {
+            "date": "2024-01-05",
+            "clockIn": "09:00",
+            "lunchOut": "12:00",
+            "lunchIn": "13:00",
+            "clockOut": "18:00",
+            "status": "normal",
+            "workHours": 8.0
+          }
+        ]
+      }
+    }
+  ],
+  "chatMessages": {
+    "chat_1": [
+      {
+        "text": "Hi Chan Jia Qi, how are you finding your role as CEO? Any strategic initiatives you'd like to discuss?",
+        "sender": "hr",
+        "timestamp": "2024-01-22T10:30:00Z"
+      },
+      {
+        "text": "Hi! I'm focused on expanding our pet care services and improving customer satisfaction. Let's schedule a meeting to discuss our Q2 goals.",
+        "sender": "Chan Jia Qi",
+        "timestamp": "2024-01-22T10:35:00Z"
+      },
+      {
+        "text": "Excellent! I'll coordinate with your assistant to set up the meeting.",
+        "sender": "hr",
+        "timestamp": "2024-01-22T10:40:00Z"
+      }
+    ],
+    "chat_2": [
+      {
+        "text": "Hi HR, I wanted to follow up on my medical leave request status.",
+        "sender": "Chiang Jun Xiang",
+        "timestamp": "2024-01-21T14:20:00Z"
+      },
+      {
+        "text": "Hi Chiang Jun Xiang, your medical leave has been approved. Take care and get well soon!",
+        "sender": "hr",
+        "timestamp": "2024-01-21T14:25:00Z"
+      },
+      {
+        "text": "Thank you so much! I appreciate the quick response.",
+        "sender": "Chiang Jun Xiang",
+        "timestamp": "2024-01-21T14:30:00Z"
+      }
+    ],
+    "chat_3": [
+      {
+        "text": "Hi Lee Hui Xin, how are the sales numbers looking this quarter?",
+        "sender": "hr",
+        "timestamp": "2024-02-05T09:15:00Z"
+      },
+      {
+        "text": "Great! We're exceeding our targets by 15%. The new marketing campaigns are really paying off.",
+        "sender": "Lee Hui Xin",
+        "timestamp": "2024-02-05T09:45:00Z"
+      }
+    ],
+    "chat_4": [
+      {
+        "text": "Hi Andeline, how are the operations running? Any process improvements we should discuss?",
+        "sender": "hr",
+        "timestamp": "2024-02-10T11:20:00Z"
+      },
+      {
+        "text": "Operations are smooth! I've implemented a new scheduling system that's improved efficiency by 20%.",
+        "sender": "Andeline Lim",
+        "timestamp": "2024-02-10T11:25:00Z"
+      }
+    ],
+    "chat_5": [
+      {
+        "text": "Hi Cheong Jia Er, great job on the recent employee satisfaction survey results!",
+        "sender": "hr",
+        "timestamp": "2024-02-15T14:30:00Z"
+      },
+      {
+        "text": "Thank you! I'm pleased with the 95% satisfaction rate. Let's keep focusing on employee development programs.",
+        "sender": "Cheong Jia Er",
+        "timestamp": "2024-02-15T14:35:00Z"
+      }
+    ]
+  },
+  "users": [
+    {
+      "id": "emp_001",
+      "username": "chan.jiaqi",
+      "name": "Chan Jia Qi",
+      "role": "employee",
+      "position": "Chief Executive Officer (CEO)",
+      "avatar": "👨‍💼"
+    },
+    {
+      "id": "emp_002",
+      "username": "chiang.junxiang",
+      "name": "Chiang Jun Xiang",
+      "role": "employee",
+      "position": "Finance Manager",
+      "avatar": "👨‍💼"
+    },
+    {
+      "id": "emp_003",
+      "username": "lee.huixin",
+      "name": "Lee Hui Xin",
+      "role": "employee",
+      "position": "Sales Manager",
+      "avatar": "👩‍💼"
+    },
+    {
+      "id": "emp_004",
+      "username": "andeline.lim",
+      "name": "Andeline Lim",
+      "role": "employee",
+      "position": "Operations Manager",
+      "avatar": "👩‍💼"
+    },
+    {
+      "id": "emp_005",
+      "username": "cheong.jiaer",
+      "name": "Cheong Jia Er",
+      "role": "employee",
+      "position": "Human Resource Manager",
+      "avatar": "👩‍💼"
+    },
+    {
+      "id": "hr_001",
+      "username": "hr.admin",
+      "name": "HR Admin",
+      "role": "hr",
+      "position": "HR Manager",
+      "avatar": "👨‍💼"
+    }
+  ],
+  "systemSettings": {
+    "lastReset": "2024-01-20T00:00:00Z",
+    "version": "1.0.0",
+    "dataVersion": "demo-v1"
+  }
+}
