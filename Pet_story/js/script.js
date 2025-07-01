@@ -5,8 +5,57 @@
 
 // <!--!!Important --> Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize website functionality
+    console.log('DOM loaded, showing ad popup'); // <!--!!Important --> Debug log
+    showAdPopup();
+    
+    // Initialize card interactions
+    initializeCardInteractions();
     initializeWebsite();
+    
+    // Add click event for location card
+    const locationCard = document.querySelector('.card-box:nth-child(3)');
+    if (locationCard) {
+        locationCard.addEventListener('click', function() {
+            window.location.href = 'html/location.html';
+        });
+        locationCard.style.cursor = 'pointer';
+    }
 });
+
+/**
+ * Advertisement popup functionality
+ */
+function showAdPopup() {
+    console.log('showAdPopup function called'); // <!--!!Important --> Debug log
+    const adPopup = document.getElementById('ad-popup');
+    console.log('Ad popup element:', adPopup); // <!--!!Important --> Debug log
+    if (adPopup) {
+        // Show the popup immediately when page loads
+        adPopup.style.display = 'flex';
+        console.log('Ad popup displayed'); // <!--!!Important --> Debug log
+        
+        // <!--!!Important --> Removed auto-close timer as per user request
+        // Auto-close functionality has been disabled
+    } else {
+        console.error('Ad popup element not found!'); // <!--!!Important --> Error log
+    }
+}
+
+/**
+ * Close advertisement popup
+ */
+function closeAdPopup() {
+    const adPopup = document.getElementById('ad-popup');
+    if (adPopup) {
+        adPopup.classList.add('hidden');
+        
+        // Remove from DOM after transition completes
+        setTimeout(() => {
+            adPopup.style.display = 'none';
+        }, 300);
+    }
+}
 
 /**
  * Initialize all website functionality
@@ -213,10 +262,20 @@ class CardCarousel {
         // Show navigation feedback
         this.showNavigationFeedback(cardTitle);
         
-        // For demo purposes, log navigation
+        // <!--!!Important --> Log navigation for debugging
         console.log(`Navigating to ${targetSection} section`);
         
-        // Future implementation: actual page navigation
+        // <!--!!Important --> Handle specific section navigation
+        if (targetSection === 'locations') {
+            // Navigate to location.html page
+            window.location.href = 'html/location.html';
+            return;
+        } else if (targetSection === 'about') {
+            window.location.href = 'html/about.html';
+            return;
+        }
+        
+        // Future implementation: actual page navigation for other sections
         // window.location.href = `${targetSection}.html`;
     }
     
@@ -450,14 +509,24 @@ function handleCardClick(card) {
  * @param {string} section - The section to navigate to
  */
 function navigateToSection(section) {
-    // For now, just log the navigation
+    // <!--!!Important --> Log navigation attempt
     console.log(`Navigating to ${section} section`);
     
-    // Future implementation: actual page navigation or section scrolling
-    // window.location.href = `${section}.html`;
+    // <!--!!Important --> Handle specific section navigation
+    if (section === 'locations') {
+        // Navigate to location.html page
+        window.location.href = 'html/location.html';
+        return;
+    } else if (section === 'about') {
+        window.location.href = 'html/about.html';
+        return;
+    }
     
-    // Show temporary feedback
+    // <!--!!Important --> Show loading notification for other sections
     showNotification(`Loading ${section.toUpperCase()} section...`);
+    
+    // TODO: Add actual navigation logic for other sections
+    // This is where you would implement the navigation to different sections
 }
 
 /**

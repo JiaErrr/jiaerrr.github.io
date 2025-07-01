@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PET STORY - Our Location</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .location-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFE4B5, #F0E68C);
+            padding: 20px;
+        }
+        
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        #location-video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .location-info {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .location-info h1 {
+            color: #8B4513;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .location-info p {
+            color: #654321;
+            font-size: 1.5em;
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .countdown {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(139, 69, 19, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="location-container">
+        <div class="video-container">
+            <video id="location-video" autoplay>
+                <source src="../image/location.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="location-info" id="location-info">
+            <h1>Our Location</h1>
+            <p>Crescendo International College</p>
+        </div>
+        
+        <div class="countdown" id="countdown">Returning to home in: <span id="timer">10</span>s</div>
+    </div>
+    
+    <script>
+        const video = document.getElementById('location-video');
+        const locationInfo = document.getElementById('location-info');
+        const countdown = document.getElementById('countdown');
+        const timer = document.getElementById('timer');
+        
+        // When video ends, show location info and start countdown
+        video.addEventListener('ended', function() {
+            locationInfo.style.display = 'block';
+            countdown.style.display = 'block';
+            
+            let timeLeft = 10;
+            const countdownInterval = setInterval(function() {
+                timeLeft--;
+                timer.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to main page
+                    window.location.href = '../index.html';
+                }
+            }, 1000);
+        });
+        
+        // Handle video load error
+        video.addEventListener('error', function() {
+            console.error('Video failed to load');
+            // If video fails, show location info immediately
+            locationInfo.style.display = 'block';
+            countdown.style.display = 'block';
+            
+            let timeLeft = 10;
+            const countdownInterval = setInterval(function() {
+                timeLeft--;
+                timer.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = '../index.html';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
